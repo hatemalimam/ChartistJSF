@@ -66,14 +66,13 @@ public class ChartRenderer extends CoreRenderer {
 	protected void encodeMarkup(FacesContext context, Chart chart) throws IOException {
 		ResponseWriter writer = context.getResponseWriter();
 		String style = chart.getStyle();
-		String styleClass = chart.getStyleClass();
+		String styleClass = chart.getStyleClass() == null ? "" : " "+ chart.getStyleClass();
 
 		writer.startElement("div", null);
 		writer.writeAttribute("id", chart.getClientId(context), null);
 		if (style != null)
 			writer.writeAttribute("style", style, "style");
-		if (styleClass != null)
-			writer.writeAttribute("class", styleClass, "styleClass");
+		writer.writeAttribute("class", chart.getModel().getStyleClass() + styleClass, "styleClass");
 
 		writer.endElement("div");
 	}

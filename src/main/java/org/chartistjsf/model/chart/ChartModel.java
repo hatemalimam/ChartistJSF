@@ -39,9 +39,11 @@ public class ChartModel implements Serializable {
 	private String height;
 	private String chartPadding;
 	private boolean reverseData;
+	private AspectRatio aspectRatio;
 
 	public ChartModel() {
 		labels = new ArrayList<Object>();
+		aspectRatio = AspectRatio.GOLDEN_SECTION;
 	}
 
 	/**
@@ -148,6 +150,30 @@ public class ChartModel implements Serializable {
 	 */
 	public void setReverseData(boolean reverseData) {
 		this.reverseData = reverseData;
+	}
+
+	/**
+	 * Specify a ratio directly on chart without the need to calculate any fixed
+	 * dimensions
+	 * 
+	 * @see AspectRatio
+	 * 
+	 * @return the aspectRatio
+	 */
+	public AspectRatio getAspectRatio() {
+		return aspectRatio;
+	}
+
+	/**
+	 * @param aspectRatio
+	 *            the aspectRatio to set
+	 */
+	public void setAspectRatio(AspectRatio aspectRatio) {
+		this.aspectRatio = aspectRatio;
+	}
+
+	public String getStyleClass() {
+		return "ct-chart " + getAspectRatio().styleClass();
 	}
 
 }
