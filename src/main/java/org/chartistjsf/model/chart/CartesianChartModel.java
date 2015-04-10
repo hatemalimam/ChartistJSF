@@ -21,7 +21,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author Hatem Alimam Since 0.1
+ * @author Hatem Alimam 
+ * @since 0.1
  */
 public class CartesianChartModel extends ChartModel {
 

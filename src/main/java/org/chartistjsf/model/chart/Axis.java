@@ -18,7 +18,8 @@ package org.chartistjsf.model.chart;
 import java.io.Serializable;
 
 /**
- * @author Hatem Alimam Since 0.1
+ * @author Hatem Alimam 
+ * @since 0.1
  */
 public abstract class Axis implements Serializable {
 

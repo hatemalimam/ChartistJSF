@@ -36,23 +36,11 @@ ChartistJSF.widget.Chart = PrimeFaces.widget.BaseWidget.extend({
 	init : function(cfg) {
 
 		var that = this;
-
 		this._super(cfg);
-
 		this.type = this.cfg.type;
-
-		var data = {
-			labels : [ 'Week1', 'Week2', 'Week3', 'Week4', 'Week5', 'Week6' ],
-			series : [ [ 5, 4, 3, 7, 5, 10 ], [ 3, 2, 9, 5, 4, 6 ], [ 2, 1, -3, -4, -2, 0 ] ]
-		};
-
-		// We are setting a few options for our chart and override the defaults
-		var options = {			
-		};
-
-		// All you need to do is pass your configuration as third parameter to
-		// the chart function
-		new Chartist['Line'](this.jqId, data, options);
-
+		this.data = this.cfg.data;
+		this.options = this.cfg.options;
+		
+		new Chartist[this.type](this.jqId, this.data, this.options);
 	},
 });

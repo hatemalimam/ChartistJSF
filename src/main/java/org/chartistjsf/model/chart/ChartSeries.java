@@ -20,7 +20,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author Hatem Alimam Since 0.1
+ * @author Hatem Alimam
+ * @since 0.1
  */
 public class ChartSeries implements Serializable {
 
@@ -29,7 +30,7 @@ public class ChartSeries implements Serializable {
 	 */
 	private static final long serialVersionUID = 6344218439648560381L;
 
-	private String label;
+	private String name;
 
 	private List<Number> data = new ArrayList<Number>();
 
@@ -40,16 +41,16 @@ public class ChartSeries implements Serializable {
 	public ChartSeries() {
 	}
 
-	public ChartSeries(String label) {
-		this.label = label;
+	public ChartSeries(String name) {
+		this.name = name;
 	}
 
-	public String getLabel() {
-		return label;
+	public String getName() {
+		return name;
 	}
 
-	public void setLabel(String label) {
-		this.label = label;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public List<Number> getData() {
@@ -58,6 +59,10 @@ public class ChartSeries implements Serializable {
 
 	public void setData(List<Number> data) {
 		this.data = data;
+	}
+
+	public void set(Number number) {
+		this.data.add(number);
 	}
 
 	public AxisType getXaxis() {

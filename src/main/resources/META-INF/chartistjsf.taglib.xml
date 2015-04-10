@@ -59,7 +59,7 @@
 			<description><![CDATA[Model of the chart.]]></description>
 			<name>model</name>
 			<required>false</required>
-			<type>org.primefaces.model.chart.ChartModel</type>
+			<type>org.chartistjsf.model.chart.ChartModel</type>
 		</attribute>
 		<attribute>
 			<description>

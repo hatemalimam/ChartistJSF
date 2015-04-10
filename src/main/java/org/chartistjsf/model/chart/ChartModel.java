@@ -17,6 +17,8 @@
 package org.chartistjsf.model.chart;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>
@@ -32,11 +34,41 @@ public class ChartModel implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -8649635660286079308L;
-
+	private List<Object> labels;
 	private String width;
 	private String height;
 	private String chartPadding;
 	private boolean reverseData;
+
+	public ChartModel() {
+		labels = new ArrayList<Object>();
+	}
+
+	/**
+	 * Returns the current labels
+	 * 
+	 * @return List<Object>
+	 */
+	public List<Object> getLabels() {
+		return labels;
+	}
+
+	/**
+	 * Adds a label
+	 * 
+	 * @param label
+	 */
+	public void addLabel(Object label) {
+		this.labels.add(label);
+	}
+
+	/**
+	 * Clears the added labels
+	 * 
+	 */
+	public void clearLabels() {
+		this.labels.clear();
+	}
 
 	/**
 	 * Specify a fixed width for the chart as a string (i.e. '100px' or '50%')
@@ -51,7 +83,7 @@ public class ChartModel implements Serializable {
 	 * Specify a fixed width for the chart as a string (i.e. '100px' or '50%')
 	 * 
 	 * @param width
-	 * the width to set
+	 *            the width to set
 	 */
 	public void setWidth(String width) {
 		this.width = width;
@@ -70,7 +102,7 @@ public class ChartModel implements Serializable {
 	 * Specify a fixed height for the chart as a string (i.e. '100px' or '50%')
 	 * 
 	 * @param height
-	 * the height to set
+	 *            the height to set
 	 */
 	public void setHeight(String height) {
 		this.height = height;
@@ -91,7 +123,7 @@ public class ChartModel implements Serializable {
 	 * a number or padding object {top: 5, right: 5, bottom: 5, left: 5}
 	 * 
 	 * @param chartPadding
-	 * the reverseData to set
+	 *            the reverseData to set
 	 */
 	public void setChartPadding(String chartPadding) {
 		this.chartPadding = chartPadding;
@@ -112,7 +144,7 @@ public class ChartModel implements Serializable {
 	 * well as the whole series data arrays.
 	 * 
 	 * @param reverseData
-	 * the reverseData to set
+	 *            the reverseData to set
 	 */
 	public void setReverseData(boolean reverseData) {
 		this.reverseData = reverseData;
