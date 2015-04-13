@@ -66,7 +66,7 @@ public class ChartRenderer extends CoreRenderer {
 	protected void encodeMarkup(FacesContext context, Chart chart) throws IOException {
 		ResponseWriter writer = context.getResponseWriter();
 		String style = chart.getStyle();
-		String styleClass = chart.getStyleClass() == null ? "" : " "+ chart.getStyleClass();
+		String styleClass = chart.getStyleClass() == null ? "" : " " + chart.getStyleClass();
 
 		writer.startElement("div", null);
 		writer.writeAttribute("id", chart.getClientId(context), null);
@@ -89,6 +89,7 @@ public class ChartRenderer extends CoreRenderer {
 		writer.write("ChartistJSF.cw('Chart','" + chart.resolveWidgetVar() + "',{");
 		writer.write("id:'" + clientId + "'");
 		writer.write(",type:'" + type + "'");
+		writer.write(",showTooltip:" + chart.getModel().isShowTooltip());
 		chartistRenderer.render(context, chart);
 		encodeClientBehaviors(context, chart);
 		writer.write("});});");

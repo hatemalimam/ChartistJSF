@@ -37,9 +37,11 @@ public class ChartModel implements Serializable {
 	private List<Object> labels;
 	private String width;
 	private String height;
-	private String chartPadding;
-	private boolean reverseData;
+	private String chartPadding = "5";
+	private boolean reverseData = false;
 	private AspectRatio aspectRatio;
+	private boolean showTooltip = false;
+	
 
 	public ChartModel() {
 		labels = new ArrayList<Object>();
@@ -175,5 +177,24 @@ public class ChartModel implements Serializable {
 	public String getStyleClass() {
 		return "ct-chart " + getAspectRatio().styleClass();
 	}
+
+	/**
+	 * Enables tooltips over the points
+	 * 
+	 * @return the enableTooltip
+	 */
+	public boolean isShowTooltip() {
+		return showTooltip;
+	}
+
+	/**
+	 * Enables tooltips over the points
+	 * 
+	 * @param enableTooltip
+	 *            the enableTooltip to set
+	 */
+	public void setShowTooltip(boolean showTooltip) {
+		this.showTooltip = showTooltip;
+	}	
 
 }

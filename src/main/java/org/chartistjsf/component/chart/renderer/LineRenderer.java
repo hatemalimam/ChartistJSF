@@ -7,6 +7,8 @@ import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
 import org.chartistjsf.component.chart.Chart;
+import org.chartistjsf.model.chart.Axis;
+import org.chartistjsf.model.chart.AxisType;
 import org.chartistjsf.model.chart.ChartSeries;
 import org.chartistjsf.model.chart.LineChartModel;
 import org.primefaces.util.ComponentUtils;
@@ -37,19 +39,22 @@ public class LineRenderer extends BaseChartistRenderer {
 		writer.write(", series:[");
 		for (Iterator<ChartSeries> it = model.getSeries().iterator(); it.hasNext();) {
 			ChartSeries series = it.next();
-			writer.write("[");
+			writer.write("{");
+			writer.write("name:'" + ComponentUtils.escapeText(series.getName()) + "'");
+			writer.write(", data:[");
 			for (Iterator<Number> numbersIter = series.getData().iterator(); numbersIter.hasNext();) {
 				Number number = numbersIter.next();
 				String numberAsString = (number != null) ? number.toString() : "null";
-				
+
 				writer.write(numberAsString);
-				
+
 				if (numbersIter.hasNext()) {
 					writer.write(",");
 				}
-												
+
 			}
 			writer.write("]");
+			writer.write("}");
 
 			if (it.hasNext()) {
 				writer.write(",");
@@ -63,37 +68,44 @@ public class LineRenderer extends BaseChartistRenderer {
 	protected void encodeOptions(FacesContext context, Chart chart) throws IOException {
 		super.encodeOptions(context, chart);
 
-//		ResponseWriter writer = context.getResponseWriter();
-//		LineChartModel model = (LineChartModel) chart.getModel();
-//
-//		writer.write(",series:[");
-//		for (Iterator<ChartSeries> it = model.getSeries().iterator(); it.hasNext();) {
-//			ChartSeries series = (ChartSeries) it.next();
-//			series.encode(writer);
-//
-//			if (it.hasNext()) {
-//				writer.write(",");
-//			}
-//		}
-//
-//		writer.write("]");
-//
-//		if (model.isStacked())
-//			writer.write(",stackSeries:true");
-//		if (model.isBreakOnNull())
-//			writer.write(",breakOnNull:true");
-//		if (model.isZoom())
-//			writer.write(",zoom:true");
-//		if (model.isAnimate())
-//			writer.write(",animate:true");
-//		if (model.isShowPointLabels())
-//			writer.write(",showPointLabels:true");
-//
-//		if (model.isShowDatatip()) {
-//			writer.write(",datatip:true");
-//			if (model.getDatatipFormat() != null)
-//				writer.write(",datatipFormat:\"" + model.getDatatipFormat() + "\"");
-//		}
-	}
+		ResponseWriter writer = context.getResponseWriter();
+		LineChartModel model = (LineChartModel) chart.getModel();
+		writer.write(",animateAdvanced:" + model.isAnimateAdvanced());
+		writer.write(",animatePath:" + model.isAnimatePath());
+		writer.write(",options:{");
+		for (Iterator<AxisType> it = model.getAxes().keySet().iterator(); it.hasNext();) {
+			AxisType axisType = it.next();
+			Axis axis = model.getAxes().get(axisType);
+			axis.render(writer, axisType);
+			if (it.hasNext()) {
+				writer.write(",");
+			}
+		}
 
+		if (model.getWidth() != null)
+			writer.write(",width:\"" + ComponentUtils.escapeText(model.getWidth()) + "\"");
+
+		if (model.getHeight() != null)
+			writer.write(",height:\"" + ComponentUtils.escapeText(model.getHeight()) + "\"");
+
+		writer.write(",showLine:" + model.isShowLine());
+		writer.write(",showPoint:" + model.isShowPoint());
+		writer.write(",showArea:" + model.isShowArea());
+		writer.write(",areaBase:" + model.getAreaBase());
+		writer.write(",lineSmooth:" + model.isLineSmooth());
+
+		if (model.getLow() != 0)
+			writer.write(",low:" + model.getLow());
+
+		if (model.getHigh() != 0)
+			writer.write(",high:" + model.getHigh());
+
+		if (model.getChartPadding() != null)
+			writer.write(",chartPadding:" + model.getChartPadding());
+
+		writer.write(",fullWidth:" + model.isFullWidth());
+		writer.write(",reverseData:" + model.isReverseData());
+
+		writer.write("}");
+	}
 }

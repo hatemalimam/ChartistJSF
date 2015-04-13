@@ -15,10 +15,13 @@
  */
 package org.chartistjsf.model.chart;
 
+import java.io.IOException;
 import java.io.Serializable;
 
+import javax.faces.context.ResponseWriter;
+
 /**
- * @author Hatem Alimam 
+ * @author Hatem Alimam
  * @since 0.1
  */
 public abstract class Axis implements Serializable {
@@ -28,13 +31,13 @@ public abstract class Axis implements Serializable {
 	 */
 	private static final long serialVersionUID = 6059542550827836357L;
 
-	private int offset;
-	private int xLabelOffset;
-	private int yLabelOffset;
-	private boolean showLabel;
-	private boolean showGrid;
+	private int offset = 30;
+	private int xLabelOffset = 0;
+	private int yLabelOffset = 0;
+	private boolean showLabel = true;
+	private boolean showGrid = true;
 	private String labelInterpolationFnc;
-	private int scaleMinSpace;
+	private int scaleMinSpace = 20;
 
 	/**
 	 * The offset of the labels to the chart area
@@ -171,5 +174,7 @@ public abstract class Axis implements Serializable {
 	public void setScaleMinSpace(int scaleMinSpace) {
 		this.scaleMinSpace = scaleMinSpace;
 	}
+
+	public abstract void render(ResponseWriter writer, AxisType axisType) throws IOException;
 
 }

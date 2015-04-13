@@ -16,7 +16,7 @@
 package org.chartistjsf.model.chart;
 
 /**
- * @author Hatem Alimam 
+ * @author Hatem Alimam
  * @since 0.1
  */
 public class LineChartModel extends CartesianChartModel {
@@ -26,12 +26,14 @@ public class LineChartModel extends CartesianChartModel {
 	 */
 	private static final long serialVersionUID = -4572261473336806816L;
 
-	private boolean showLine;
-	private boolean showPoint;
-	private boolean showArea;
-	private int areaBase;
-	private boolean lineSmooth;
-	private boolean fullWidth;
+	private boolean showLine = true;
+	private boolean showPoint = true;
+	private boolean showArea = false;
+	private int areaBase = 0;
+	private boolean lineSmooth = true;
+	private boolean fullWidth = false;
+	private boolean animateAdvanced = false;
+	private boolean animatePath = false;
 
 	/**
 	 * If the line should be drawn or not
@@ -46,7 +48,7 @@ public class LineChartModel extends CartesianChartModel {
 	 * If the line should be drawn or not
 	 * 
 	 * @param showLine
-	 * the showLine to set
+	 *            the showLine to set
 	 */
 	public void setShowLine(boolean showLine) {
 		this.showLine = showLine;
@@ -65,7 +67,7 @@ public class LineChartModel extends CartesianChartModel {
 	 * If dots should be drawn or not
 	 * 
 	 * @param showPoint
-	 * the showPoint to set
+	 *            the showPoint to set
 	 */
 	public void setShowPoint(boolean showPoint) {
 		this.showPoint = showPoint;
@@ -84,7 +86,7 @@ public class LineChartModel extends CartesianChartModel {
 	 * If the line chart should draw an area
 	 * 
 	 * @param showArea
-	 * the showArea to set
+	 *            the showArea to set
 	 */
 	public void setShowArea(boolean showArea) {
 		this.showArea = showArea;
@@ -105,7 +107,7 @@ public class LineChartModel extends CartesianChartModel {
 	 * normally 0)
 	 * 
 	 * @param areaBase
-	 * the areaBase to set
+	 *            the areaBase to set
 	 */
 	public void setAreaBase(int areaBase) {
 		this.areaBase = areaBase;
@@ -136,7 +138,7 @@ public class LineChartModel extends CartesianChartModel {
 	 * description.
 	 * 
 	 * @param lineSmooth
-	 * the lineSmooth to set
+	 *            the lineSmooth to set
 	 */
 	public void setLineSmooth(boolean lineSmooth) {
 		this.lineSmooth = lineSmooth;
@@ -161,10 +163,47 @@ public class LineChartModel extends CartesianChartModel {
 	 * or offset the last label with a draw event handler.
 	 * 
 	 * @param fullWidth
-	 * the fullWidth to set
+	 *            the fullWidth to set
 	 */
 	public void setFullWidth(boolean fullWidth) {
 		this.fullWidth = fullWidth;
 	}
 
+	/**
+	 * Enables Advanced SMIL animations
+	 * 
+	 * @return the advancedAnimation
+	 */
+	public boolean isAnimateAdvanced() {
+		return animateAdvanced;
+	}
+
+	/**
+	 * Enables Advanced SMIL animations
+	 * 
+	 * @param advancedAnimation
+	 *            the advancedAnimation to set
+	 */
+	public void setAnimateAdvanced(boolean animateAdvanced) {
+		this.animateAdvanced = animateAdvanced;
+	}
+
+	/**
+	 * Enables SVG path animation
+	 * 
+	 * @return the pathAnimation
+	 */
+	public boolean isAnimatePath() {
+		return animatePath;
+	}
+
+	/**
+	 * Enables SVG path animation
+	 * 
+	 * @param pathAnimation
+	 *            the pathAnimation to set
+	 */
+	public void setAnimatePath(boolean animatePath) {
+		this.animatePath = animatePath;
+	}
 }
