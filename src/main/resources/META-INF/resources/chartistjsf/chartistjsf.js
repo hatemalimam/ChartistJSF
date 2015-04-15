@@ -68,6 +68,12 @@ ChartistJSF.widget.Chart = PrimeFaces.widget.BaseWidget.extend({
 					$this.invokeItemSelectBehavior(event, $(this).index(), $(this).parent().parent().find('.ct-series')
 							.index($(this).parent()))
 				});
+			} else if (this.type == 'Pie') {
+				this.jq.on('click', '.ct-slice', function(event) {
+					var element = jQuery(this).parent();
+					var reverseIndex = element.parent().children().length - (element.index() + 1);
+					$this.invokeItemSelectBehavior(event, reverseIndex, reverseIndex)
+				});
 			}
 
 		}
@@ -96,13 +102,18 @@ ChartistJSF.widget.Chart = PrimeFaces.widget.BaseWidget.extend({
 	tooltip : function() {
 		var $chart = this.jq;
 		var $toolTip = $chart.append('<div class="ct-tooltip"></div>').find('.ct-tooltip').hide();
+		var chartType = this.type;
 
-		$chart.on('mouseenter', '.ct-point, .ct-bar', function() {
+		$chart.on('mouseenter', '.ct-point, .ct-bar, .ct-slice', function() {
 			var $point = $(this), value = $point.attr('ct:value'), seriesName = $point.parent().attr('ct:series-name');
-			$toolTip.html(seriesName + '<br>' + value).show();
+			var tooltipText = value;
+			if (chartType !== 'Pie') {
+				tooltipText = seriesName + '<br>' + value;
+			}
+			$toolTip.html(tooltipText).show();
 		});
 
-		$chart.on('mouseleave', '.ct-point, .ct-bar', function() {
+		$chart.on('mouseleave', '.ct-point, .ct-bar, .ct-slice', function() {
 			$toolTip.hide();
 		});
 

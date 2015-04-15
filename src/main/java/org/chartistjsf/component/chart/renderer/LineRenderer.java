@@ -2,6 +2,8 @@ package org.chartistjsf.component.chart.renderer;
 
 import java.io.IOException;
 import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
@@ -15,13 +17,21 @@ import org.primefaces.util.ComponentUtils;
 
 public class LineRenderer extends BaseChartistRenderer {
 
+	private static final Logger logger = Logger.getLogger(LineRenderer.class.getName());
+
 	@Override
 	protected void encodeData(FacesContext context, Chart chart) throws IOException {
 		ResponseWriter writer = context.getResponseWriter();
 		LineChartModel model = (LineChartModel) chart.getModel();
 
+		if (model.getLabels().isEmpty()) {
+			logger.log(Level.SEVERE,
+					"Make sure to set the required lables for LineChart, otherwise the chart won't render");
+			return;
+		}
 		writer.write(",data:{");
 		writer.write("labels: [");
+
 		for (Iterator<Object> labelsItr = model.getLabels().iterator(); labelsItr.hasNext();) {
 			Object label = labelsItr.next();
 

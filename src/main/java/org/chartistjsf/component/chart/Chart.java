@@ -81,7 +81,9 @@ public class Chart extends UIComponentBase implements org.primefaces.component.a
 	}
 
 	public java.lang.String getType() {
-		return (java.lang.String) getStateHelper().eval(PropertyKeys.type, null);
+		String type = (java.lang.String) getStateHelper().eval(PropertyKeys.type, null);
+		type = Character.toUpperCase(type.charAt(0)) + type.substring(1);
+		return type;
 	}
 
 	public void setType(java.lang.String _type) {

@@ -2,6 +2,8 @@ package org.chartistjsf.component.chart.renderer;
 
 import java.io.IOException;
 import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
@@ -15,12 +17,21 @@ import org.primefaces.util.ComponentUtils;
 
 public class BarRenderer extends BaseChartistRenderer {
 
+	private static final Logger logger = Logger.getLogger(BarRenderer.class.getName());
+
 	@Override
 	protected void encodeData(FacesContext context, Chart chart) throws IOException {
 		ResponseWriter writer = context.getResponseWriter();
 		BarChartModel model = (BarChartModel) chart.getModel();
 
 		writer.write(",data:{");
+
+		if (model.getLabels().isEmpty()) {
+			logger.log(Level.SEVERE,
+					"Make sure to set the required lables for BarChart, otherwise the chart won't render");
+			return;
+		}
+
 		writer.write("labels: [");
 		for (Iterator<Object> labelsItr = model.getLabels().iterator(); labelsItr.hasNext();) {
 			Object label = labelsItr.next();
@@ -34,9 +45,9 @@ public class BarRenderer extends BaseChartistRenderer {
 				writer.write(",");
 			}
 		}
-		writer.write("]");
+		writer.write("],");
 
-		writer.write(", series:[");
+		writer.write(" series:[");
 		for (Iterator<ChartSeries> it = model.getSeries().iterator(); it.hasNext();) {
 			ChartSeries series = it.next();
 			writer.write("{");
@@ -80,7 +91,7 @@ public class BarRenderer extends BaseChartistRenderer {
 			if (it.hasNext()) {
 				writer.write(",");
 			}
-		}		
+		}
 		if (model.getWidth() != null)
 			writer.write(",width:\"" + ComponentUtils.escapeText(model.getWidth()) + "\"");
 
