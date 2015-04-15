@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author Hatem Alimam 
+ * @author Hatem Alimam
  * @since 0.1
  */
 public class CartesianChartModel extends ChartModel {
@@ -35,6 +35,8 @@ public class CartesianChartModel extends ChartModel {
 	protected Map<AxisType, Axis> axes;
 	private int high;
 	private int low;
+	private boolean animateAdvanced = false;
+	private boolean animatePath = false;
 
 	public CartesianChartModel() {
 		series = new ArrayList<ChartSeries>();
@@ -111,7 +113,7 @@ public class CartesianChartModel extends ChartModel {
 	 * the charts highest displayed value
 	 * 
 	 * @param high
-	 * the high to set
+	 *            the high to set
 	 */
 	public void setHigh(int high) {
 		this.high = high;
@@ -132,10 +134,48 @@ public class CartesianChartModel extends ChartModel {
 	 * the charts lowest displayed value
 	 * 
 	 * @param low
-	 * the low to set
+	 *            the low to set
 	 */
 	public void setLow(int low) {
 		this.low = low;
+	}
+
+	/**
+	 * Enables Advanced SMIL animations
+	 * 
+	 * @return the advancedAnimation
+	 */
+	public boolean isAnimateAdvanced() {
+		return animateAdvanced;
+	}
+
+	/**
+	 * Enables Advanced SMIL animations
+	 * 
+	 * @param advancedAnimation
+	 *            the advancedAnimation to set
+	 */
+	public void setAnimateAdvanced(boolean animateAdvanced) {
+		this.animateAdvanced = animateAdvanced;
+	}
+
+	/**
+	 * Enables SVG path animation
+	 * 
+	 * @return the pathAnimation
+	 */
+	public boolean isAnimatePath() {
+		return animatePath;
+	}
+
+	/**
+	 * Enables SVG path animation
+	 * 
+	 * @param pathAnimation
+	 *            the pathAnimation to set
+	 */
+	public void setAnimatePath(boolean animatePath) {
+		this.animatePath = animatePath;
 	}
 
 }

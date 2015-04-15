@@ -32,8 +32,7 @@ public class LineChartModel extends CartesianChartModel {
 	private int areaBase = 0;
 	private boolean lineSmooth = true;
 	private boolean fullWidth = false;
-	private boolean animateAdvanced = false;
-	private boolean animatePath = false;
+	
 
 	/**
 	 * If the line should be drawn or not
@@ -167,43 +166,5 @@ public class LineChartModel extends CartesianChartModel {
 	 */
 	public void setFullWidth(boolean fullWidth) {
 		this.fullWidth = fullWidth;
-	}
-
-	/**
-	 * Enables Advanced SMIL animations
-	 * 
-	 * @return the advancedAnimation
-	 */
-	public boolean isAnimateAdvanced() {
-		return animateAdvanced;
-	}
-
-	/**
-	 * Enables Advanced SMIL animations
-	 * 
-	 * @param advancedAnimation
-	 *            the advancedAnimation to set
-	 */
-	public void setAnimateAdvanced(boolean animateAdvanced) {
-		this.animateAdvanced = animateAdvanced;
-	}
-
-	/**
-	 * Enables SVG path animation
-	 * 
-	 * @return the pathAnimation
-	 */
-	public boolean isAnimatePath() {
-		return animatePath;
-	}
-
-	/**
-	 * Enables SVG path animation
-	 * 
-	 * @param pathAnimation
-	 *            the pathAnimation to set
-	 */
-	public void setAnimatePath(boolean animatePath) {
-		this.animatePath = animatePath;
-	}
+	}	
 }

@@ -42,7 +42,7 @@ ChartistJSF.widget.Chart = PrimeFaces.widget.BaseWidget.extend({
 		this.options = this.cfg.options;
 
 		this.chart = new Chartist[this.type](this.jqId, this.data, this.options);
-		
+
 		this.bindEvents();
 	},
 	bindEvents : function() {
@@ -58,10 +58,18 @@ ChartistJSF.widget.Chart = PrimeFaces.widget.BaseWidget.extend({
 			$this.animatePath();
 
 		if (this.cfg.behaviors['itemSelect']) {
-			this.jq.on('click', '.ct-point', function(event) {
-				$this.invokeItemSelectBehavior(event, $(this).index() - 1, $(this).parent().parent().find('.ct-series')
-						.index($(this).parent()))
-			});
+			if (this.type == 'Line') {
+				this.jq.on('click', '.ct-point', function(event) {
+					$this.invokeItemSelectBehavior(event, $(this).index() - 1, $(this).parent().parent().find(
+							'.ct-series').index($(this).parent()))
+				});
+			} else if (this.type == 'Bar') {
+				this.jq.on('click', '.ct-bar', function(event) {
+					$this.invokeItemSelectBehavior(event, $(this).index(), $(this).parent().parent().find('.ct-series')
+							.index($(this).parent()))
+				});
+			}
+
 		}
 	},
 
@@ -89,12 +97,12 @@ ChartistJSF.widget.Chart = PrimeFaces.widget.BaseWidget.extend({
 		var $chart = this.jq;
 		var $toolTip = $chart.append('<div class="ct-tooltip"></div>').find('.ct-tooltip').hide();
 
-		$chart.on('mouseenter', '.ct-point', function() {
+		$chart.on('mouseenter', '.ct-point, .ct-bar', function() {
 			var $point = $(this), value = $point.attr('ct:value'), seriesName = $point.parent().attr('ct:series-name');
 			$toolTip.html(seriesName + '<br>' + value).show();
 		});
 
-		$chart.on('mouseleave', '.ct-point', function() {
+		$chart.on('mouseleave', '.ct-point, .ct-bar', function() {
 			$toolTip.hide();
 		});
 
@@ -119,6 +127,41 @@ ChartistJSF.widget.Chart = PrimeFaces.widget.BaseWidget.extend({
 						easing : Chartist.Svg.Easing.easeOutQuint
 					}
 				});
+			} else if (data.type === 'bar') {
+				if (chart.options.horizontalBars) {
+					data.element.animate({
+						x2 : {
+							begin : 500 * data.index,
+							dur : 1000,
+							from : data.x1,
+							to : data.x2,
+							easing : Chartist.Svg.Easing.easeOutQuint
+						},
+						opacity : {
+							dur : 1000,
+							from : 0,
+							to : 1,
+							easing : Chartist.Svg.Easing.easeOutQuint
+						}
+					});
+				} else {
+					data.element.animate({
+						y2 : {
+							begin : 500 * data.index,
+							dur : 1000,
+							from : data.y1,
+							to : data.y2,
+							easing : Chartist.Svg.Easing.easeOutCirc
+						},
+						opacity : {
+							begin : 500 * data.index,
+							dur : 1000,
+							from : 0,
+							to : 1,
+							easing : Chartist.Svg.Easing.easeOutCirc
+						}
+					});
+				}
 			}
 		});
 	},
@@ -138,7 +181,6 @@ ChartistJSF.widget.Chart = PrimeFaces.widget.BaseWidget.extend({
 		// trigger SMIL animations
 		chart.on('draw', function(data) {
 			seq++;
-
 			if (data.type === 'line') {
 				// If the drawn element is a line we do a simple opacity fade
 				// in.
@@ -155,6 +197,43 @@ ChartistJSF.widget.Chart = PrimeFaces.widget.BaseWidget.extend({
 						to : 1
 					}
 				});
+
+			} else if (data.type === 'bar') {
+
+				if (chart.options.horizontalBars) {
+					data.element.animate({
+						x2 : {
+							begin : seq * delays + 1000,
+							dur : 1000,
+							from : data.x1,
+							to : data.x2,
+							easing : Chartist.Svg.Easing.easeOutQuint
+						},
+						opacity : {
+							dur : 1000,
+							from : 0,
+							to : 1,
+							easing : Chartist.Svg.Easing.easeOutQuint
+						}
+					});
+				} else {
+					data.element.animate({
+						y2 : {
+							begin : seq * delays + 1000,
+							dur : 1000,
+							from : data.y1,
+							to : data.y2,
+							easing : Chartist.Svg.Easing.easeOutQuint
+						},
+						opacity : {
+							dur : 1000,
+							from : 0,
+							to : 1,
+							easing : Chartist.Svg.Easing.easeOutQuint
+						}
+					});
+				}
+
 			} else if (data.type === 'label' && data.axis === 'x') {
 				data.element.animate({
 					y : {
