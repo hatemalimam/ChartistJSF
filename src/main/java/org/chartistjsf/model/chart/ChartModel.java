@@ -41,7 +41,7 @@ public class ChartModel implements Serializable {
 	private boolean reverseData = false;
 	private AspectRatio aspectRatio;
 	private boolean showTooltip = false;
-	
+	private String responsiveOptions;
 
 	public ChartModel() {
 		labels = new ArrayList<Object>();
@@ -195,6 +195,27 @@ public class ChartModel implements Serializable {
 	 */
 	public void setShowTooltip(boolean showTooltip) {
 		this.showTooltip = showTooltip;
-	}	
+	}
+
+	/**
+	 * Specify an array of responsive option arrays which are a media query and
+	 * options object pair => [[mediaQueryString, optionsObject],[more...]]
+	 * 
+	 * @return the responsiveOptions
+	 */
+	public String getResponsiveOptions() {
+		return responsiveOptions;
+	}
+
+	/**
+	 * Specify an array of responsive option arrays which are a media query and
+	 * options object pair => [[mediaQueryString, optionsObject],[more...]]
+	 * 
+	 * @param responsiveOptions
+	 *            the responsiveOptions to set
+	 */
+	public void setResponsiveOptions(String responsiveOptions) {
+		this.responsiveOptions = responsiveOptions;
+	}
 
 }

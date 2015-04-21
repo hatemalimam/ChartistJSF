@@ -9,7 +9,7 @@
 ### Overview
 ***
 
-**ChartistJSF** is based on [Chartist.js](http://gionkunz.github.io/chartist-js/) charts, which is a product of a community that was disappointed about the abilities provided by other charting libraries, and the components are built on top of [PrimeFaces](http://primefaces.org) providing the maximum harmony in todays modern JSF applications.
+**ChartistJSF** is based on [Chartist.js](http://gionkunz.github.io/chartist-js/) charts, which is a product of a community that was disappointed about the abilities provided by other charting libraries. The components are built on top of [PrimeFaces](http://primefaces.org) providing the maximum harmony in todays modern JSF applications.
 
 ### Facts
 

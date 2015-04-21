@@ -40,8 +40,9 @@ ChartistJSF.widget.Chart = PrimeFaces.widget.BaseWidget.extend({
 		this.type = this.cfg.type;
 		this.data = this.cfg.data;
 		this.options = this.cfg.options;
+		this.responsiveOptions = this.cfg.responsiveOptions;
 
-		this.chart = new Chartist[this.type](this.jqId, this.data, this.options);
+		this.chart = new Chartist[this.type](this.jqId, this.data, this.options, this.responsiveOptions);
 
 		this.bindEvents();
 	},
