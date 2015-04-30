@@ -58,7 +58,7 @@ ChartistJSF.widget.Chart = PrimeFaces.widget.BaseWidget.extend({
 		if (this.cfg.animatePath)
 			$this.animatePath();
 
-		if (this.cfg.behaviors['itemSelect']) {
+		if (this.cfg.behaviors && this.cfg.behaviors['itemSelect']) {
 			if (this.type == 'Line') {
 				this.jq.on('click', '.ct-point', function(event) {
 					$this.invokeItemSelectBehavior(event, $(this).index() - 1, $(this).parent().parent().find(

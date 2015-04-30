@@ -3,8 +3,7 @@
 
 **ChartistJSF**, Highly Customizable Responsive Charts for JavaServer Faces.
 
-![ChartistJSF icon](http://i.imgur.com/kKZc4P5.gif?1)
-
+![ChartistJSF](http://i.imgur.com/PvHoTjp.png?1)
 
 ### Overview
 ***
@@ -25,9 +24,9 @@
 ### Why ChartistJSF and Not PrimeFaces Charts
 
 ***
-PrimeFaces relies on jqPlot to draw the charts, and anyone worked with PrimeFaces charts had a time where customization went out of hand, styling and full controls also can be a headache, jqPlot relies on canvas for drawing the charts which limits the full control in the generated DOM elements.
+PrimeFaces relies on jqPlot to draw the charts, jqPlot uses canvas for drawing the charts which limits the full control over the generated DOM elements, therefore styling and full controls can be a headache.
 
-From that point the necessity for another Chart library came into the way (along-side PrimeFaces), ChartistJSF relies on Chartist.js to generate the Chart elements in pure SVG, tha SVG charts are defined in XML. As a result, every SVG element is appended to the Document Object Model (DOM) and can be manipulated using a combination of JavaScript and CSS. Moreover, you can attach an event handlers to a SVG element or update its properties based on another document event. Canvas, on the other hand, is a simple graphics API. It draws pixels and nothing more.
+From that point the necessity for another Chart library came into the way (along-side PrimeFaces), ChartistJSF relies on Chartist.js to generate the Chart elements in pure SVG, the SVG charts are defined in XML. As a result, every SVG element is appended to the Document Object Model (DOM) and can be manipulated using a combination of JavaScript and CSS. Moreover, you can attach an event handlers to a SVG element or update its properties based on another document event. Canvas, on the other hand, is a simple graphics API. It draws pixels and nothing more.
 
 Responsive is built in mind from the start and with media-queries it's easy to control each case apart.
 
@@ -41,7 +40,7 @@ ChartistJSF can be downloaded manually or via maven.
 
 Version | Binary | Source
 ------------ | -------------  | ------------- 
-0.1| [Download](https://oss.sonatype.org/content/repositories/releases/org/chartistjsf/ChartistJSF/0.1/ChartistJSF-0.1.jar)  | [Download](https://oss.sonatype.org/content/repositories/releases/org/chartistjsf/ChartistJSF/0.1/ChartistJSF-0.1-sources.jar)
+0.2| [Download](https://oss.sonatype.org/content/repositories/releases/org/chartistjsf/ChartistJSF/0.2/ChartistJSF-0.2.jar)  | [Download](https://oss.sonatype.org/content/repositories/releases/org/chartistjsf/ChartistJSF/0.2/ChartistJSF-0.2-sources.jar)
 
 ##### Maven
 
@@ -49,7 +48,7 @@ Version | Binary | Source
 <dependency>
 	<groupId>org.chartistjsf</groupId>
 	<artifactId>chartistjsf</artifactId>
-	<version>0.1</version>		
+	<version>0.2</version>		
 </dependency>
 ```
 
@@ -71,10 +70,10 @@ xmlns:ct="http://www.chartistjsf.org/charts"
 - - - -
 
 
-## [Further Examples](http://chartistjsf.org)
+## [Further Examples](http://jsf.hatemalimam.com/chartistjsf)
 ***
 
-Please refer to the [showcase](http://chartistjsf.org) website in order to see the full usage.
+Please refer to the [showcase](http://jsf.hatemalimam.com/chartistjsf) website in order to see the full usage.
 
 
 ### Contribution
