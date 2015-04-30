@@ -44,7 +44,7 @@ Version | Binary | Source
 
 ##### Maven
 
-```
+```xml
 <dependency>
 	<groupId>org.chartistjsf</groupId>
 	<artifactId>chartistjsf</artifactId>
@@ -57,13 +57,13 @@ Version | Binary | Source
 
 ##### Namespace
 
-```
+```xml
 xmlns:ct="http://www.chartistjsf.org/charts"
 ```
 
 ##### Component
 
-```
+```xml
 <ct:chart type="line" model="#{mainBean.lineModel}">
 </ct:chart>
 ```
