@@ -48,6 +48,17 @@ public class ChartModel implements Serializable {
 		aspectRatio = AspectRatio.GOLDEN_SECTION;
 	}
 
+	protected ChartModel(ChartModel chartModel) {
+		this.labels = chartModel.labels;
+		this.width = chartModel.width;
+		this.height = chartModel.height;
+		this.chartPadding = chartModel.chartPadding;
+		this.reverseData = chartModel.reverseData;
+		this.aspectRatio = chartModel.aspectRatio;
+		this.showTooltip = chartModel.showTooltip;
+		this.responsiveOptions = chartModel.responsiveOptions;
+	}
+
 	/**
 	 * Returns the current labels
 	 * 

@@ -32,6 +32,14 @@ public class BarChartModel extends CartesianChartModel {
 	private boolean stackBars = false;
 	private boolean horizontalBars = false;
 
+	public BarChartModel() {
+
+	}
+
+	public BarChartModel(CartesianChartModel cartesianChartModel) {
+		super(cartesianChartModel);
+	}
+
 	@Override
 	public void createAxes() {
 		axes = new HashMap<AxisType, Axis>();

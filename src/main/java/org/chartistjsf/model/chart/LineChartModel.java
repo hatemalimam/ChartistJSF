@@ -32,7 +32,14 @@ public class LineChartModel extends CartesianChartModel {
 	private int areaBase = 0;
 	private boolean lineSmooth = true;
 	private boolean fullWidth = false;
-	
+
+	public LineChartModel() {
+
+	}
+
+	public LineChartModel(CartesianChartModel cartesianChartModel) {
+		super(cartesianChartModel);
+	}
 
 	/**
 	 * If the line should be drawn or not
@@ -166,5 +173,5 @@ public class LineChartModel extends CartesianChartModel {
 	 */
 	public void setFullWidth(boolean fullWidth) {
 		this.fullWidth = fullWidth;
-	}	
+	}
 }

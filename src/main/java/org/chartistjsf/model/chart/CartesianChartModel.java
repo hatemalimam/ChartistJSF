@@ -43,6 +43,16 @@ public class CartesianChartModel extends ChartModel {
 		createAxes();
 	}
 
+	protected CartesianChartModel(CartesianChartModel cartesianChartModel) {
+		super(cartesianChartModel);
+		this.series = cartesianChartModel.series;
+		this.axes = cartesianChartModel.axes;
+		this.high = cartesianChartModel.high;
+		this.low = cartesianChartModel.low;
+		this.animateAdvanced = cartesianChartModel.animateAdvanced;
+		this.animatePath = cartesianChartModel.animatePath;
+	}
+
 	/**
 	 * Creates the default Axes for CartesianChartModel
 	 * 
