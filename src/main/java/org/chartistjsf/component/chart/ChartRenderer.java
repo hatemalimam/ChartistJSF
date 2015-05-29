@@ -18,6 +18,7 @@ package org.chartistjsf.component.chart;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Logger;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -34,6 +35,8 @@ import org.primefaces.renderkit.CoreRenderer;
  * @since 0.1
  */
 public class ChartRenderer extends CoreRenderer {
+
+	private static final Logger logger = Logger.getLogger(ChartRenderer.class.getName());
 
 	public static final String RENDERER_TYPE = "org.chartistjsf.component.ChartRenderer";
 
@@ -64,6 +67,12 @@ public class ChartRenderer extends CoreRenderer {
 	}
 
 	protected void encodeMarkup(FacesContext context, Chart chart) throws IOException {
+
+		if (chart == null || chart.getModel() == null) {
+			logger.warning("ChartModel is null, make sure it's initialized");
+			return;
+		}
+
 		ResponseWriter writer = context.getResponseWriter();
 		String style = chart.getStyle();
 		String styleClass = chart.getStyleClass() == null ? "" : " " + chart.getStyleClass();
@@ -78,6 +87,9 @@ public class ChartRenderer extends CoreRenderer {
 	}
 
 	protected void encodeScript(FacesContext context, Chart chart) throws IOException {
+		if (chart == null || chart.getModel() == null) {
+			return;
+		}
 		ResponseWriter writer = context.getResponseWriter();
 		String type = chart.getType();
 		BaseChartistRenderer chartistRenderer = CHART_RENDERERS.get(type);
