@@ -27,7 +27,7 @@ public class PieRenderer extends BaseChartistRenderer {
 				if (label instanceof String)
 					writer.write("\"" + ComponentUtils.escapeText(label.toString()) + "\"");
 				else
-					writer.write(label.toString());
+					writer.write(label !=null?label.toString():"");
 
 				if (labelsItr.hasNext()) {
 					writer.write(",");
@@ -59,7 +59,7 @@ public class PieRenderer extends BaseChartistRenderer {
 
 		ResponseWriter writer = context.getResponseWriter();
 		PieChartModel model = (PieChartModel) chart.getModel();
-		// writer.write(",animateAdvanced:" + model.isAnimateAdvanced());
+		writer.write(",animateAdvanced:" + model.isAnimateAdvanced());
 		// writer.write(",animatePath:" + model.isAnimatePath());
 		writer.write(",options:{");
 		writer.write("startAngle:" + model.getStartAngle());

@@ -42,6 +42,8 @@ public class ChartModel implements Serializable {
 	private AspectRatio aspectRatio;
 	private boolean showTooltip = false;
 	private String responsiveOptions;
+	private boolean animateAdvanced = false;
+	private boolean animatePath = false;
 
 	public ChartModel() {
 		labels = new ArrayList<Object>();
@@ -57,6 +59,8 @@ public class ChartModel implements Serializable {
 		this.aspectRatio = chartModel.aspectRatio;
 		this.showTooltip = chartModel.showTooltip;
 		this.responsiveOptions = chartModel.responsiveOptions;
+		this.animateAdvanced = chartModel.animateAdvanced;
+		this.animatePath = chartModel.animatePath;
 	}
 
 	/**
@@ -227,6 +231,44 @@ public class ChartModel implements Serializable {
 	 */
 	public void setResponsiveOptions(String responsiveOptions) {
 		this.responsiveOptions = responsiveOptions;
+	}
+
+	/**
+	 * Enables Advanced SMIL animations
+	 * 
+	 * @return the advancedAnimation
+	 */
+	public boolean isAnimateAdvanced() {
+		return animateAdvanced;
+	}
+
+	/**
+	 * Enables Advanced SMIL animations
+	 * 
+	 * @param advancedAnimation
+	 *            the advancedAnimation to set
+	 */
+	public void setAnimateAdvanced(boolean animateAdvanced) {
+		this.animateAdvanced = animateAdvanced;
+	}
+
+	/**
+	 * Enables SVG path animation
+	 * 
+	 * @return the pathAnimation
+	 */
+	public boolean isAnimatePath() {
+		return animatePath;
+	}
+
+	/**
+	 * Enables SVG path animation
+	 * 
+	 * @param pathAnimation
+	 *            the pathAnimation to set
+	 */
+	public void setAnimatePath(boolean animatePath) {
+		this.animatePath = animatePath;
 	}
 
 }

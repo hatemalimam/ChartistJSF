@@ -35,8 +35,7 @@ public class CartesianChartModel extends ChartModel {
 	protected Map<AxisType, Axis> axes;
 	private int high;
 	private int low;
-	private boolean animateAdvanced = false;
-	private boolean animatePath = false;
+	
 
 	public CartesianChartModel() {
 		series = new ArrayList<ChartSeries>();
@@ -49,8 +48,6 @@ public class CartesianChartModel extends ChartModel {
 		this.axes = cartesianChartModel.axes;
 		this.high = cartesianChartModel.high;
 		this.low = cartesianChartModel.low;
-		this.animateAdvanced = cartesianChartModel.animateAdvanced;
-		this.animatePath = cartesianChartModel.animatePath;
 	}
 
 	/**
@@ -148,44 +145,6 @@ public class CartesianChartModel extends ChartModel {
 	 */
 	public void setLow(int low) {
 		this.low = low;
-	}
-
-	/**
-	 * Enables Advanced SMIL animations
-	 * 
-	 * @return the advancedAnimation
-	 */
-	public boolean isAnimateAdvanced() {
-		return animateAdvanced;
-	}
-
-	/**
-	 * Enables Advanced SMIL animations
-	 * 
-	 * @param advancedAnimation
-	 *            the advancedAnimation to set
-	 */
-	public void setAnimateAdvanced(boolean animateAdvanced) {
-		this.animateAdvanced = animateAdvanced;
-	}
-
-	/**
-	 * Enables SVG path animation
-	 * 
-	 * @return the pathAnimation
-	 */
-	public boolean isAnimatePath() {
-		return animatePath;
-	}
-
-	/**
-	 * Enables SVG path animation
-	 * 
-	 * @param pathAnimation
-	 *            the pathAnimation to set
-	 */
-	public void setAnimatePath(boolean animatePath) {
-		this.animatePath = animatePath;
 	}
 
 }

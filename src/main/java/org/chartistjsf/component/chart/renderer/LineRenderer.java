@@ -38,7 +38,7 @@ public class LineRenderer extends BaseChartistRenderer {
 			if (label instanceof String)
 				writer.write("\"" + ComponentUtils.escapeText(label.toString()) + "\"");
 			else
-				writer.write(label.toString());
+				writer.write(label !=null?label.toString():"");
 
 			if (labelsItr.hasNext()) {
 				writer.write(",");
