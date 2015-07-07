@@ -3,7 +3,8 @@
 
 **ChartistJSF**, Highly Customizable Responsive Charts for JavaServer Faces.
 
-![ChartistJSF](http://i.imgur.com/PvHoTjp.png?1)
+![ChartistJSF-Line](http://i.imgur.com/blsm9kw.gif?1)
+![ChartistJSF-Bar](http://i.imgur.com/2lhouF9.gif?1)
 
 ### Overview
 ***
