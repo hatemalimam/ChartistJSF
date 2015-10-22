@@ -52,6 +52,10 @@ public class LinearAxis extends Axis {
 		writer.write(", showLabel: " + this.getShowLabel());
 		writer.write(", showGrid: " + this.getShowGrid());
 
+		if (this.getAxisPosition() != null) {
+			writer.write(", position: '" + this.getAxisPosition() + "'");
+		}
+
 		if (getLabelInterpolationFnc() != null && !getLabelInterpolationFnc().equals(""))
 			writer.write(", labelInterpolationFnc: " + getLabelInterpolationFnc());
 
