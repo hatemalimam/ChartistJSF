@@ -32,6 +32,7 @@ public abstract class Axis implements Serializable {
 	private static final long serialVersionUID = 6059542550827836357L;
 
 	private int offset = 30;
+	private AxisPosition axisPosition;
 	private int xLabelOffset = 0;
 	private int yLabelOffset = 0;
 	private boolean showLabel = true;
@@ -55,6 +56,24 @@ public abstract class Axis implements Serializable {
 	 */
 	public void setOffset(int offset) {
 		this.offset = offset;
+	}
+	
+	/**
+	 * Position where labels are placed.
+	 * Can be set to AxisPosition.START or AxisPosition.END where `start` is equivalent to left or top on vertical axis and `end` is equivalent to right or bottom on horizontal axis.
+	 * @return the axisPosition
+	 */
+	public AxisPosition getAxisPosition() {
+		return axisPosition;
+	}
+
+	/**
+	 * Position where labels are placed.
+	 * Can be set to AxisPosition.START or AxisPosition.END where `start` is equivalent to left or top on vertical axis and `end` is equivalent to right or bottom on horizontal axis.
+	 * @param axisPosition the axisPosition to set
+	 */
+	public void setAxisPosition(AxisPosition axisPosition) {
+		this.axisPosition = axisPosition;
 	}
 
 	/**
@@ -134,6 +153,8 @@ public abstract class Axis implements Serializable {
 	public void setShowGrid(boolean showGrid) {
 		this.showGrid = showGrid;
 	}
+	
+	
 
 	/**
 	 * Interpolation function that allows you to intercept the value from the
