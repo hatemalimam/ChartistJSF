@@ -105,7 +105,7 @@ ChartistJSF.widget.Chart = PrimeFaces.widget.BaseWidget.extend({
 		var $toolTip = $chart.append('<div class="ct-tooltip"></div>').find('.ct-tooltip').hide();
 		var chartType = this.type;
 
-		$chart.on('mouseenter', '.ct-point, .ct-bar, .ct-slice', function() {
+		$chart.on('mouseenter', '.ct-point, .ct-bar, .ct-slice-pie, .ct-slice-donut', function() {
 			var $point = $(this), value = $point.attr('ct:value'), seriesName = $point.parent().attr('ct:series-name');
 			var tooltipText = value;
 			if (chartType !== 'Pie') {
@@ -114,7 +114,7 @@ ChartistJSF.widget.Chart = PrimeFaces.widget.BaseWidget.extend({
 			$toolTip.html(tooltipText).show();
 		});
 
-		$chart.on('mouseleave', '.ct-point, .ct-bar, .ct-slice', function() {
+		$chart.on('mouseleave', '.ct-point, .ct-bar, .ct-slice-pie, .ct-slice-donut', function() {
 			$toolTip.hide();
 		});
 
@@ -195,8 +195,7 @@ ChartistJSF.widget.Chart = PrimeFaces.widget.BaseWidget.extend({
 			seq++;
 			if (data.type === 'line') {
 				// If the drawn element is a line we do a simple opacity fade
-				// in.
-				// This could also be achieved using CSS3 animations.
+				// in. This could also be achieved using CSS3 animations.
 				data.element.animate({
 					opacity : {
 						// The delay when we like to start the animation
@@ -209,7 +208,6 @@ ChartistJSF.widget.Chart = PrimeFaces.widget.BaseWidget.extend({
 						to : 1
 					}
 				});
-
 			} else if (data.type === 'bar') {
 
 				if (chart.options.horizontalBars) {
@@ -294,27 +292,26 @@ ChartistJSF.widget.Chart = PrimeFaces.widget.BaseWidget.extend({
 				});
 			} else if (data.type === 'grid') {
 				// Using data.axis we get x or y which we can use to construct
-				// our
-				// animation definition objects
+				// our animation definition objects
 				var pos1Animation = {
 					begin : seq * delays,
 					dur : durations,
-					from : data[data.axis + '1'] - 30,
-					to : data[data.axis + '1'],
+					from : data[data.axis.units.pos + '1'] - 30,
+					to : data[data.axis.units.pos + '1'],
 					easing : 'easeOutQuart'
 				};
 
 				var pos2Animation = {
 					begin : seq * delays,
 					dur : durations,
-					from : data[data.axis + '2'] - 100,
-					to : data[data.axis + '2'],
+					from : data[data.axis.units.pos + '2'] - 100,
+					to : data[data.axis.units.pos + '2'],
 					easing : 'easeOutQuart'
 				};
 
 				var animations = {};
-				animations[data.axis + '1'] = pos1Animation;
-				animations[data.axis + '2'] = pos2Animation;
+				animations[data.axis.units.pos + '1'] = pos1Animation;
+				animations[data.axis.units.pos + '2'] = pos2Animation;
 				animations['opacity'] = {
 					begin : seq * delays,
 					dur : durations,
