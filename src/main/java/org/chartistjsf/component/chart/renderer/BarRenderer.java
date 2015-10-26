@@ -51,7 +51,7 @@ public class BarRenderer extends BaseChartistRenderer {
 		for (Iterator<ChartSeries> it = model.getSeries().iterator(); it.hasNext();) {
 			ChartSeries series = it.next();
 			writer.write("{");
-			writer.write("name:'" + ComponentUtils.escapeText(series.getName()) + "'");
+			writer.write("name:\"" + ComponentUtils.escapeText(series.getName()) + "\"");
 			writer.write(", data:[");
 			for (Iterator<Number> numbersIter = series.getData().iterator(); numbersIter.hasNext();) {
 				Number number = numbersIter.next();
