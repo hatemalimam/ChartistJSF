@@ -321,7 +321,7 @@ ChartistJSF.widget.Chart = PrimeFaces.widget.BaseWidget.extend({
 				};
 
 				data.element.animate(animations);
-			} else if (data.type === 'slice') {
+			} else if (data.type === 'slice' && !$.browser.msie) {
 				// Get the total path length in order to use for dash array
 				// animation
 				var pathLength = data.element._node.getTotalLength();

@@ -41,7 +41,7 @@ ChartistJSF can be downloaded manually or via maven.
 
 Version | Binary | Source
 ------------ | -------------  | ------------- 
-0.8| [Download](https://oss.sonatype.org/content/repositories/releases/org/chartistjsf/ChartistJSF/0.8/ChartistJSF-0.8.jar)  | [Download](https://oss.sonatype.org/content/repositories/releases/org/chartistjsf/ChartistJSF/0.8/ChartistJSF-0.8-sources.jar)
+0.9| [Download](https://oss.sonatype.org/content/repositories/releases/org/chartistjsf/ChartistJSF/0.9/ChartistJSF-0.9.jar)  | [Download](https://oss.sonatype.org/content/repositories/releases/org/chartistjsf/ChartistJSF/0.9/ChartistJSF-0.9-sources.jar)
 
 ##### Maven
 
@@ -49,7 +49,7 @@ Version | Binary | Source
 <dependency>
 	<groupId>org.chartistjsf</groupId>
 	<artifactId>chartistjsf</artifactId>
-	<version>0.8</version>		
+	<version>0.9</version>		
 </dependency>
 ```
 

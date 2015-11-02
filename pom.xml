@@ -12,7 +12,7 @@
 	<groupId>org.chartistjsf</groupId>
 	<artifactId>ChartistJSF</artifactId>
 	<packaging>jar</packaging>
-	<version>0.8</version>
+	<version>0.9-SNAPSHOT</version>
 	<name>ChartistJSF</name>
 	<description>Highly Customizable Responsive Charts for JSF based on PrimeFaces</description>
 	<url>http://www.chartistjsf.org</url>
