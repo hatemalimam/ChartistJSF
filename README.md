@@ -48,7 +48,7 @@ Version | Binary | Source
 ```xml
 <dependency>
 	<groupId>org.chartistjsf</groupId>
-	<artifactId>chartistjsf</artifactId>
+	<artifactId>ChartistJSF</artifactId>
 	<version>0.9</version>		
 </dependency>
 ```
