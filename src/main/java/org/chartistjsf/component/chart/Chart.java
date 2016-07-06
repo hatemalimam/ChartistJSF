@@ -38,7 +38,8 @@ import org.primefaces.event.ItemSelectEvent;
  * @since 0.1
  */
 @ResourceDependencies({ @ResourceDependency(library = "primefaces", name = "jquery/jquery.js"),
-		@ResourceDependency(library = "primefaces", name = "primefaces.js"),
+		@ResourceDependency(library = "primefaces", name = "core.js"),
+		@ResourceDependency(library = "primefaces", name = "components.js"),
 		@ResourceDependency(library = "chartistjsf", name = "chartist-js/chartist.min.css"),
 		@ResourceDependency(library = "chartistjsf", name = "chartist-js/chartist.min.js"),
 		@ResourceDependency(library = "chartistjsf", name = "chartistjsf.js") })
