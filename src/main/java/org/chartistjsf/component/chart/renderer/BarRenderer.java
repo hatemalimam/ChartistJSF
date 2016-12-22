@@ -23,14 +23,14 @@ public class BarRenderer extends BaseChartistRenderer {
 	protected void encodeData(FacesContext context, Chart chart) throws IOException {
 		ResponseWriter writer = context.getResponseWriter();
 		BarChartModel model = (BarChartModel) chart.getModel();
-
-		writer.write(",data:{");
-
+		
 		if (model.getLabels().isEmpty()) {
 			logger.log(Level.SEVERE,
 					"Make sure to set the required lables for BarChart, otherwise the chart won't render");
 			return;
 		}
+
+		writer.write(",data:{");
 
 		writer.write("labels: [");
 		for (Iterator<Object> labelsItr = model.getLabels().iterator(); labelsItr.hasNext();) {
