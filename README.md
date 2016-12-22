@@ -41,7 +41,7 @@ ChartistJSF can be downloaded manually or via maven.
 
 Version | Binary | Source | PrimeFaces Version
 ------------ | -------------  | ------------- | ------------- 
-2.0| [Download](https://oss.sonatype.org/content/repositories/releases/org/chartistjsf/ChartistJSF/2.0/ChartistJSF-2.0.jar)  | [Download](https://oss.sonatype.org/content/repositories/releases/org/chartistjsf/ChartistJSF/2.0/ChartistJSF-2.0-sources.jar) | 6.x
+2.1| [Download](https://oss.sonatype.org/content/repositories/releases/org/chartistjsf/ChartistJSF/2.1/ChartistJSF-2.1.jar)  | [Download](https://oss.sonatype.org/content/repositories/releases/org/chartistjsf/ChartistJSF/2.1/ChartistJSF-2.1-sources.jar) | 6.x
 1.0| [Download](https://oss.sonatype.org/content/repositories/releases/org/chartistjsf/ChartistJSF/1.0/ChartistJSF-1.0.jar)  | [Download](https://oss.sonatype.org/content/repositories/releases/org/chartistjsf/ChartistJSF/1.0/ChartistJSF-1.0-sources.jar) | 5.x
 
 ##### Maven
@@ -50,7 +50,7 @@ PrimeFaces 6.x
 <dependency>
 	<groupId>org.chartistjsf</groupId>
 	<artifactId>ChartistJSF</artifactId>
-	<version>2.0</version>		
+	<version>2.1</version>		
 </dependency>
 ```
 
