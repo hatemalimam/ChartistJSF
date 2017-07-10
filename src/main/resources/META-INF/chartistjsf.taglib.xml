@@ -75,6 +75,12 @@
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
+		<attribute>
+            <description><![CDATA[all relevant plugins .]]></description>
+            <name>plugins</name>
+            <required>false</required>
+            <type>java.lang.String</type>
+        </attribute>
 	</tag>
 
 

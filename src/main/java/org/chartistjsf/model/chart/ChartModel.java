@@ -128,8 +128,8 @@ public class ChartModel implements Serializable {
 	}
 
 	/**
-	 * Padding of the chart drawing area to the container element and labels as
-	 * a number or padding object {top: 5, right: 5, bottom: 5, left: 5}
+	 * Padding of the chart drawing area to the container element and labels as a number or padding object {top: 5,
+	 * right: 5, bottom: 5, left: 5}
 	 * 
 	 * @return the chartPadding
 	 */
@@ -138,8 +138,8 @@ public class ChartModel implements Serializable {
 	}
 
 	/**
-	 * Padding of the chart drawing area to the container element and labels as
-	 * a number or padding object {top: 5, right: 5, bottom: 5, left: 5}
+	 * Padding of the chart drawing area to the container element and labels as a number or padding object {top: 5,
+	 * right: 5, bottom: 5, left: 5}
 	 * 
 	 * @param chartPadding
 	 *            the reverseData to set
@@ -149,8 +149,7 @@ public class ChartModel implements Serializable {
 	}
 
 	/**
-	 * If true the whole data is reversed including labels, the series order as
-	 * well as the whole series data arrays.
+	 * If true the whole data is reversed including labels, the series order as well as the whole series data arrays.
 	 * 
 	 * @return the reverseData
 	 */
@@ -159,8 +158,7 @@ public class ChartModel implements Serializable {
 	}
 
 	/**
-	 * If true the whole data is reversed including labels, the series order as
-	 * well as the whole series data arrays.
+	 * If true the whole data is reversed including labels, the series order as well as the whole series data arrays.
 	 * 
 	 * @param reverseData
 	 *            the reverseData to set
@@ -170,8 +168,7 @@ public class ChartModel implements Serializable {
 	}
 
 	/**
-	 * Specify a ratio directly on chart without the need to calculate any fixed
-	 * dimensions
+	 * Specify a ratio directly on chart without the need to calculate any fixed dimensions
 	 * 
 	 * @see AspectRatio
 	 * 
@@ -213,8 +210,8 @@ public class ChartModel implements Serializable {
 	}
 
 	/**
-	 * Specify an array of responsive option arrays which are a media query and
-	 * options object pair => [[mediaQueryString, optionsObject],[more...]]
+	 * Specify an array of responsive option arrays which are a media query and options object pair =>
+	 * [[mediaQueryString, optionsObject],[more...]]
 	 * 
 	 * @return the responsiveOptions
 	 */
@@ -223,8 +220,8 @@ public class ChartModel implements Serializable {
 	}
 
 	/**
-	 * Specify an array of responsive option arrays which are a media query and
-	 * options object pair => [[mediaQueryString, optionsObject],[more...]]
+	 * Specify an array of responsive option arrays which are a media query and options object pair =>
+	 * [[mediaQueryString, optionsObject],[more...]]
 	 * 
 	 * @param responsiveOptions
 	 *            the responsiveOptions to set
