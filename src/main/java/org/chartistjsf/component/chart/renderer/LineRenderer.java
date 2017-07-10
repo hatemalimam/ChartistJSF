@@ -103,6 +103,7 @@ public class LineRenderer extends BaseChartistRenderer {
 		writer.write(",showArea:" + model.isShowArea());
 		writer.write(",areaBase:" + model.getAreaBase());
 		writer.write(",lineSmooth:" + model.isLineSmooth());
+		writer.write(",showGridBackground:" + model.isShowGridBackground());
 
 		if (model.getLow() != 0)
 			writer.write(",low:" + model.getLow());
