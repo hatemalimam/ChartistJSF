@@ -101,6 +101,7 @@ public class BarRenderer extends BaseChartistRenderer {
 		writer.write(",seriesBarDistance:" + model.getSeriesBarDistance());
 		writer.write(",stackBars:" + model.isStackBars());
 		writer.write(",horizontalBars:" + model.isHorizontalBars());
+		writer.write(",showGridBackground:" + model.isShowGridBackground());
 
 		if (model.getLow() != 0)
 			writer.write(",low:" + model.getLow());

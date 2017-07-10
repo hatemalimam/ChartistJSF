@@ -49,7 +49,7 @@ public class Chart extends UIComponentBase implements org.primefaces.component.a
 
 	protected enum PropertyKeys {
 
-		widgetVar, type, model, style, styleClass;
+		widgetVar, type, model, plugins, style, styleClass;
 
 		String toString;
 
@@ -97,6 +97,14 @@ public class Chart extends UIComponentBase implements org.primefaces.component.a
 
 	public void setModel(ChartModel _model) {
 		getStateHelper().put(PropertyKeys.model, _model);
+	}
+
+	public java.lang.String getPlugins() {
+		return (java.lang.String) getStateHelper().eval(PropertyKeys.plugins, null);
+	}
+
+	public void setPlugins(java.lang.String _plugins) {
+		getStateHelper().put(PropertyKeys.plugins, _plugins);
 	}
 
 	public java.lang.String getStyle() {

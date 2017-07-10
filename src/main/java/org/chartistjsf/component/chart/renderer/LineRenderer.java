@@ -38,7 +38,7 @@ public class LineRenderer extends BaseChartistRenderer {
 			if (label instanceof String)
 				writer.write("\"" + ComponentUtils.escapeText(label.toString()) + "\"");
 			else
-				writer.write(label !=null?label.toString():"");
+				writer.write(label != null ? label.toString() : "");
 
 			if (labelsItr.hasNext()) {
 				writer.write(",");
@@ -103,6 +103,7 @@ public class LineRenderer extends BaseChartistRenderer {
 		writer.write(",showArea:" + model.isShowArea());
 		writer.write(",areaBase:" + model.getAreaBase());
 		writer.write(",lineSmooth:" + model.isLineSmooth());
+		writer.write(",showGridBackground:" + model.isShowGridBackground());
 
 		if (model.getLow() != 0)
 			writer.write(",low:" + model.getLow());
@@ -113,6 +114,9 @@ public class LineRenderer extends BaseChartistRenderer {
 		if (model.getChartPadding() != null)
 			writer.write(",chartPadding:" + model.getChartPadding());
 
+		if (chart.getPlugins() != null) {
+			writer.write(",plugins:" + chart.getPlugins());
+		}
 		writer.write(",fullWidth:" + model.isFullWidth());
 		writer.write(",reverseData:" + model.isReverseData());
 

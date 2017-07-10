@@ -35,7 +35,7 @@ public class CartesianChartModel extends ChartModel {
 	protected Map<AxisType, Axis> axes;
 	private int high;
 	private int low;
-	
+	private boolean showGridBackground = false;
 
 	public CartesianChartModel() {
 		series = new ArrayList<ChartSeries>();
@@ -48,6 +48,7 @@ public class CartesianChartModel extends ChartModel {
 		this.axes = cartesianChartModel.axes;
 		this.high = cartesianChartModel.high;
 		this.low = cartesianChartModel.low;
+		this.showGridBackground = cartesianChartModel.showGridBackground;
 	}
 
 	/**
@@ -106,8 +107,7 @@ public class CartesianChartModel extends ChartModel {
 	}
 
 	/**
-	 * Overriding the natural high of the chart allows you to zoom in or limit
-	 * the charts highest displayed value
+	 * Overriding the natural high of the chart allows you to zoom in or limit the charts highest displayed value
 	 * 
 	 * @return the high
 	 */
@@ -116,8 +116,7 @@ public class CartesianChartModel extends ChartModel {
 	}
 
 	/**
-	 * Overriding the natural high of the chart allows you to zoom in or limit
-	 * the charts highest displayed value
+	 * Overriding the natural high of the chart allows you to zoom in or limit the charts highest displayed value
 	 * 
 	 * @param high
 	 *            the high to set
@@ -127,8 +126,7 @@ public class CartesianChartModel extends ChartModel {
 	}
 
 	/**
-	 * Overriding the natural low of the chart allows you to zoom in or limit
-	 * the charts lowest displayed value
+	 * Overriding the natural low of the chart allows you to zoom in or limit the charts lowest displayed value
 	 * 
 	 * @return the low
 	 */
@@ -137,14 +135,32 @@ public class CartesianChartModel extends ChartModel {
 	}
 
 	/**
-	 * Overriding the natural low of the chart allows you to zoom in or limit
-	 * the charts lowest displayed value
+	 * Overriding the natural low of the chart allows you to zoom in or limit the charts lowest displayed value
 	 * 
 	 * @param low
 	 *            the low to set
 	 */
 	public void setLow(int low) {
 		this.low = low;
+	}
+
+	/**
+	 * add a background fill to the .ct-grids group
+	 * 
+	 * @return the showGridBackground
+	 */
+	public boolean isShowGridBackground() {
+		return showGridBackground;
+	}
+
+	/**
+	 * add a background fill to the .ct-grids group
+	 * 
+	 * @param showGridBackground
+	 *            the showGridBackground to set
+	 */
+	public void setShowGridBackground(boolean showGridBackground) {
+		this.showGridBackground = showGridBackground;
 	}
 
 }
