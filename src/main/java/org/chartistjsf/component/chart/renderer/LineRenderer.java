@@ -114,9 +114,11 @@ public class LineRenderer extends BaseChartistRenderer {
 		if (model.getChartPadding() != null)
 			writer.write(",chartPadding:" + model.getChartPadding());
 
-		if (chart.getPlugins() != null) {
-			writer.write(",plugins:" + chart.getPlugins());
-		}
+		if (model.getPlugins() != null)
+		    writer.write(",plugins:" + model.getPlugins());
+		else if(chart.getPlugins() != null)
+		    writer.write(",plugins:" + chart.getPlugins());
+		
 		writer.write(",fullWidth:" + model.isFullWidth());
 		writer.write(",reverseData:" + model.isReverseData());
 

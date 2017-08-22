@@ -44,6 +44,7 @@ public class ChartModel implements Serializable {
 	private String responsiveOptions;
 	private boolean animateAdvanced = false;
 	private boolean animatePath = false;
+	private String plugins;
 
 	public ChartModel() {
 		labels = new ArrayList<Object>();
@@ -61,6 +62,8 @@ public class ChartModel implements Serializable {
 		this.responsiveOptions = chartModel.responsiveOptions;
 		this.animateAdvanced = chartModel.animateAdvanced;
 		this.animatePath = chartModel.animatePath;
+		this.plugins = chartModel.plugins;
+		
 	}
 
 	/**
@@ -266,6 +269,27 @@ public class ChartModel implements Serializable {
 	 */
 	public void setAnimatePath(boolean animatePath) {
 		this.animatePath = animatePath;
+	}
+
+	/**
+	 * 
+	 * @return plugins
+	 */
+	public String getPlugins()
+	{
+	    return plugins;
+	}
+
+	/**
+	 * Specify one plugin or an array of plugins
+	 * Example one: [plugin1()]
+	 * Example two: [[plugin1()],[plugin2()]]
+	 * 
+	 * @param plugins the plugins to set
+	 */
+	public void setPlugins(String plugins)
+	{
+	    this.plugins = plugins;
 	}
 
 }

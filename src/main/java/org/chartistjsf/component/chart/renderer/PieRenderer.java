@@ -83,6 +83,11 @@ public class PieRenderer extends BaseChartistRenderer {
 			writer.write(",chartPadding:" + model.getChartPadding());
 
 		writer.write(",reverseData:" + model.isReverseData());
+		
+		if (model.getPlugins() != null)
+		    writer.write(",plugins:" + model.getPlugins());
+		else if(chart.getPlugins() != null)
+		    writer.write(",plugins:" + chart.getPlugins());
 
 		writer.write("}");
 	}
