@@ -31,6 +31,7 @@ public class BarChartModel extends CartesianChartModel {
 	private int seriesBarDistance = 15;
 	private boolean stackBars = false;
 	private boolean horizontalBars = false;
+	private Integer referenceValue = 0;
 
 	public BarChartModel() {
 
@@ -67,10 +68,9 @@ public class BarChartModel extends CartesianChartModel {
 	}
 
 	/**
-	 * If set to true this property will cause the series bars to be stacked and
-	 * form a total for each series point. This will also influence the y-axis
-	 * and the overall bounds of the chart. In stacked mode the
-	 * seriesBarDistance property will have no effect.
+	 * If set to true this property will cause the series bars to be stacked and form a total for each series point.
+	 * This will also influence the y-axis and the overall bounds of the chart. In stacked mode the seriesBarDistance
+	 * property will have no effect.
 	 * 
 	 * @return the stackBars
 	 */
@@ -79,10 +79,9 @@ public class BarChartModel extends CartesianChartModel {
 	}
 
 	/**
-	 * If set to true this property will cause the series bars to be stacked and
-	 * form a total for each series point. This will also influence the y-axis
-	 * and the overall bounds of the chart. In stacked mode the
-	 * seriesBarDistance property will have no effect.
+	 * If set to true this property will cause the series bars to be stacked and form a total for each series point.
+	 * This will also influence the y-axis and the overall bounds of the chart. In stacked mode the seriesBarDistance
+	 * property will have no effect.
 	 * 
 	 * @param stackBars
 	 *            the stackBars to set
@@ -92,9 +91,8 @@ public class BarChartModel extends CartesianChartModel {
 	}
 
 	/**
-	 * Inverts the axes of the bar chart in order to draw a horizontal bar
-	 * chart. Be aware that you also need to invert your axis settings as the Y
-	 * Axis will now display the labels and the X Axis the values.
+	 * Inverts the axes of the bar chart in order to draw a horizontal bar chart. Be aware that you also need to invert
+	 * your axis settings as the Y Axis will now display the labels and the X Axis the values.
 	 * 
 	 * @return the horizontalBars
 	 */
@@ -103,15 +101,35 @@ public class BarChartModel extends CartesianChartModel {
 	}
 
 	/**
-	 * Inverts the axes of the bar chart in order to draw a horizontal bar
-	 * chart. Be aware that you also need to invert your axis settings as the Y
-	 * Axis will now display the labels and the X Axis the values.
+	 * Inverts the axes of the bar chart in order to draw a horizontal bar chart. Be aware that you also need to invert
+	 * your axis settings as the Y Axis will now display the labels and the X Axis the values.
 	 * 
 	 * @param horizontalBars
 	 *            the horizontalBars to set
 	 */
 	public void setHorizontalBars(boolean horizontalBars) {
 		this.horizontalBars = horizontalBars;
+	}
+
+	/**
+	 * Unless low/high are explicitly set, bar chart will be centered at zero by default. Set referenceValue to null to
+	 * auto scale.
+	 * 
+	 * @return the referenceValue
+	 */
+	public Integer getReferenceValue() {
+		return referenceValue;
+	}
+
+	/**
+	 * Unless low/high are explicitly set, bar chart will be centered at zero by default. Set referenceValue to null to
+	 * auto scale.
+	 * 
+	 * @param referenceValue
+	 *            the referenceValue to set
+	 */
+	public void setReferenceValue(Integer referenceValue) {
+		this.referenceValue = referenceValue;
 	}
 
 }

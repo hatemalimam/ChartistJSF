@@ -114,6 +114,8 @@ public class BarRenderer extends BaseChartistRenderer {
 		if (model.getHigh() != 0)
 			writer.write(",high:" + model.getHigh());
 
+		writer.write(",referenceValue: " + (model.getReferenceValue() == null ? "null" : model.getReferenceValue()));
+
 		if (model.getChartPadding() != null)
 			writer.write(",chartPadding:" + model.getChartPadding());
 
@@ -126,5 +128,4 @@ public class BarRenderer extends BaseChartistRenderer {
 
 		writer.write("}");
 	}
-
 }
