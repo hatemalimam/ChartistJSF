@@ -59,11 +59,8 @@ public class LinearAxis extends Axis {
 		if (getLabelInterpolationFnc() != null && !getLabelInterpolationFnc().equals(""))
 			writer.write(", labelInterpolationFnc: " + getLabelInterpolationFnc());
 
-		if (axisType.equals(AxisType.Y))
-			writer.write(", scaleMinSpace: " + getScaleMinSpace());
-
-		if (axisType.equals(AxisType.Y))
-			writer.write(", onlyInteger: " + isOnlyInteger());
+		writer.write(", scaleMinSpace: " + getScaleMinSpace());
+		writer.write(", onlyInteger: " + isOnlyInteger());
 
 		writer.write("}");
 	}
