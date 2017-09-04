@@ -16,12 +16,13 @@
 package org.chartistjsf.model.chart;
 
 /**
- * @author Hatem Alimam 
+ * @author Hatem Alimam
  * @since 0.1
  */
 public enum AxisType {
-	
-	X("axisX"), Y("axisY");
+
+	X("axisX"), Y("axisY"), AUTO_SCALE_AXIS("Chartist.AutoScaleAxis"), FIXED_SCALE_AXIS("Chartist.FixedScaleAxis"), STEP_AXIS(
+			"Chartist.StepAxis");
 
 	private String text;
 

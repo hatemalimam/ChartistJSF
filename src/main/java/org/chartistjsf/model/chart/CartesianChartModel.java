@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Logger;
 
 /**
  * @author Hatem Alimam
@@ -30,6 +31,8 @@ public class CartesianChartModel extends ChartModel {
 	 * 
 	 */
 	private static final long serialVersionUID = 6182574506516748699L;
+
+	private static final Logger logger = Logger.getLogger(CartesianChartModel.class.getName());
 
 	private List<ChartSeries> series;
 	protected Map<AxisType, Axis> axes;

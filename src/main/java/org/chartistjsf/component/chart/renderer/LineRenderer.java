@@ -2,6 +2,7 @@ package org.chartistjsf.component.chart.renderer;
 
 import java.io.IOException;
 import java.util.Iterator;
+import java.util.ListIterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -46,6 +47,19 @@ public class LineRenderer extends BaseChartistRenderer {
 		}
 		writer.write("]");
 
+		if (model.getAxis(AxisType.X).getType() != null
+				&& (model.getAxis(AxisType.X).getType().equals(AxisType.AUTO_SCALE_AXIS) || model.getAxis(AxisType.X)
+						.getType().equals(AxisType.FIXED_SCALE_AXIS))) {
+			logger.info("AxisType for X is: " + model.getAxis(AxisType.X).getType());
+			writeTypedAxisSeries(writer, model);
+		} else {
+			writeNormalSeries(writer, model);
+		}
+
+		writer.write("}");
+	}
+
+	private void writeNormalSeries(ResponseWriter writer, LineChartModel model) throws IOException {
 		writer.write(", series:[");
 		for (Iterator<ChartSeries> it = model.getSeries().iterator(); it.hasNext();) {
 			ChartSeries series = it.next();
@@ -74,8 +88,37 @@ public class LineRenderer extends BaseChartistRenderer {
 				writer.write(",");
 			}
 		}
+
 		writer.write("]");
-		writer.write("}");
+	}
+
+	private void writeTypedAxisSeries(ResponseWriter writer, LineChartModel model) throws IOException {
+		writer.write(", series:[");
+		for (ListIterator<ChartSeries> it = model.getSeries().listIterator(); it.hasNext();) {
+			ChartSeries series = it.next();
+			writer.write("[");
+			for (ListIterator<Number> numbersIter = series.getData().listIterator(); numbersIter.hasNext();) {
+				Integer index = numbersIter.nextIndex();
+				writer.write("{");
+				writer.write("x: " + model.getLabels().get(index));
+				Number number = numbersIter.next();
+				String numberAsString = (number != null) ? number.toString() : "null";
+
+				writer.write(", y: " + numberAsString);
+				writer.write("}");
+
+				if (numbersIter.hasNext()) {
+					writer.write(",");
+				}
+
+			}
+			writer.write("]");
+
+			if (it.hasNext()) {
+				writer.write(",");
+			}
+		}
+		writer.write("]");
 	}
 
 	@Override

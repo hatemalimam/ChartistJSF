@@ -16,6 +16,7 @@
 package org.chartistjsf.model.chart;
 
 import java.io.IOException;
+import java.util.Iterator;
 
 import javax.faces.context.ResponseWriter;
 
@@ -52,6 +53,9 @@ public class LinearAxis extends Axis {
 		writer.write(", showLabel: " + this.getShowLabel());
 		writer.write(", showGrid: " + this.getShowGrid());
 
+		if (this.getType() != null)
+			writer.write(", type: " + this.getType());
+
 		if (this.getAxisPosition() != null) {
 			writer.write(", position: '" + this.getAxisPosition() + "'");
 		}
@@ -61,6 +65,32 @@ public class LinearAxis extends Axis {
 
 		writer.write(", scaleMinSpace: " + getScaleMinSpace());
 		writer.write(", onlyInteger: " + isOnlyInteger());
+		writer.write(",divisor:" + getDivisor());
+		writer.write(",stretch:" + isStretch());
+
+		if (this.getLow() != null) {
+			writer.write(",low:" + getLow());
+		}
+
+		if (this.getHigh() != null) {
+			writer.write(",high:" + getHigh());
+		}
+
+		if (getTicks() != null && !getTicks().isEmpty()) {
+			writer.write(", ticks:[");
+			for (Iterator<Number> numbersIter = getTicks().iterator(); numbersIter.hasNext();) {
+				Number number = numbersIter.next();
+				String numberAsString = (number != null) ? number.toString() : "null";
+
+				writer.write(numberAsString);
+
+				if (numbersIter.hasNext()) {
+					writer.write(",");
+				}
+
+			}
+			writer.write("]");
+		}
 
 		writer.write("}");
 	}

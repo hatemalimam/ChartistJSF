@@ -17,6 +17,8 @@ package org.chartistjsf.model.chart;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.faces.context.ResponseWriter;
 
@@ -40,6 +42,17 @@ public abstract class Axis implements Serializable {
 	private String labelInterpolationFnc;
 	private int scaleMinSpace = 20;
 	private boolean onlyInteger = false;
+	private AxisType type;
+	// used for AxisTypes
+	private int divisor = 1;
+	private List<Number> ticks;
+	private boolean stretch;
+	private Integer high;
+	private Integer low;
+
+	public Axis() {
+		ticks = new ArrayList<Number>();
+	}
 
 	/**
 	 * The offset of the labels to the chart area
@@ -209,6 +222,134 @@ public abstract class Axis implements Serializable {
 	 */
 	public void setOnlyInteger(boolean onlyInteger) {
 		this.onlyInteger = onlyInteger;
+	}
+
+	/**
+	 * Set the axis type to be used to project values on this axis. If not defined, Chartist.StepAxis will be used for
+	 * the X-Axis, where the ticks option will be set to the labels in the data and the stretch option will be set to
+	 * the global fullWidth option.
+	 * 
+	 * Or Chartist.AutoScaleAxis will be used for the Y-Axis, where the high and low options will be set to the global
+	 * high and low options. This type can be changed to any axis constructor available (e.g. Chartist.FixedScaleAxis),
+	 * where all axis options should be present here.
+	 * 
+	 * @return the axisType
+	 */
+	public AxisType getType() {
+		return type;
+	}
+
+	/**
+	 * @param axisType
+	 *            the axisType to set
+	 */
+	public void setType(AxisType type) {
+		this.type = type;
+	}
+
+	/**
+	 * If specified then the value range determined from minimum to maximum (or low and high) will be divided by this
+	 * number and ticks will be generated at those division points. The default divisor is 1.
+	 * 
+	 * @return the divisor
+	 */
+	public int getDivisor() {
+		return divisor;
+	}
+
+	/**
+	 * If specified then the value range determined from minimum to maximum (or low and high) will be divided by this
+	 * number and ticks will be generated at those division points. The default divisor is 1.
+	 * 
+	 * @param divisor
+	 *            the divisor to set
+	 */
+	public void setDivisor(int divisor) {
+		this.divisor = divisor;
+	}
+
+	/**
+	 * If ticks is explicitly set, then the axis will not compute the ticks with the divisor, but directly use the data
+	 * in ticks to determine at what points on the axis a tick need to be generated.
+	 * 
+	 * @return the ticks
+	 */
+	public List<Number> getTicks() {
+		return ticks;
+	}
+
+	/**
+	 * Adds a tick
+	 * 
+	 * @param {@link Number}
+	 */
+	public void addTick(Number number) {
+		ticks.add(number);
+	}
+
+	/**
+	 * If set to true the full width will be used to distribute the values where the last value will be at the maximum
+	 * of the axis length. If false the spaces between the ticks will be evenly distributed instead.
+	 * 
+	 * @return the stretch
+	 */
+	public boolean isStretch() {
+		return stretch;
+	}
+
+	/**
+	 * If set to true the full width will be used to distribute the values where the last value will be at the maximum
+	 * of the axis length. If false the spaces between the ticks will be evenly distributed instead.
+	 * 
+	 * @param stretch
+	 *            the stretch to set
+	 */
+	public void setStretch(boolean stretch) {
+		this.stretch = stretch;
+	}
+
+	/**
+	 * If high is specified then the axis will display values explicitly up to this value and the computed maximum from
+	 * the data is ignored
+	 * 
+	 * @return the high
+	 */
+	public Integer getHigh() {
+		return high;
+	}
+
+	/**
+	 * If high is specified then the axis will display values explicitly up to this value and the computed maximum from
+	 * the data is ignored
+	 * 
+	 * @param high
+	 *            the high to set
+	 */
+	public void setHigh(Integer high) {
+		this.high = high;
+	}
+
+	/**
+	 * This option will be used when finding the right scale division settings. The amount of ticks on the scale will be
+	 * determined so that as many ticks as possible will be displayed, while not violating this minimum required space
+	 * (in pixel).
+	 * 
+	 * @return the low
+	 */
+	public Integer getLow() {
+		return low;
+	}
+
+	/**
+	 * This option will be used when finding the right scale division settings. The amount of ticks on the scale will be
+	 * determined so that as many ticks as possible will be displayed, while not violating this minimum required space
+	 * (in pixel).
+	 * 
+	 * @param low
+	 *            the low to set
+	 */
+	public void setLow(Integer low) {
+		this.low = low;
 	}
 
 	public abstract void render(ResponseWriter writer, AxisType axisType) throws IOException;

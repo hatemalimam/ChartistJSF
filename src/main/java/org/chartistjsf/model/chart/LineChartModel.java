@@ -15,6 +15,7 @@
  */
 package org.chartistjsf.model.chart;
 
+
 /**
  * @author Hatem Alimam
  * @since 0.1
@@ -34,7 +35,7 @@ public class LineChartModel extends CartesianChartModel {
 	private boolean fullWidth = false;
 
 	public LineChartModel() {
-
+		super();
 	}
 
 	public LineChartModel(CartesianChartModel cartesianChartModel) {
@@ -99,8 +100,7 @@ public class LineChartModel extends CartesianChartModel {
 	}
 
 	/**
-	 * The base for the area chart that will be used to close the area shape (is
-	 * normally 0)
+	 * The base for the area chart that will be used to close the area shape (is normally 0)
 	 * 
 	 * @return the areaBase
 	 */
@@ -109,8 +109,7 @@ public class LineChartModel extends CartesianChartModel {
 	}
 
 	/**
-	 * The base for the area chart that will be used to close the area shape (is
-	 * normally 0)
+	 * The base for the area chart that will be used to close the area shape (is normally 0)
 	 * 
 	 * @param areaBase
 	 *            the areaBase to set
@@ -120,13 +119,10 @@ public class LineChartModel extends CartesianChartModel {
 	}
 
 	/**
-	 * Specify if the lines should be smoothed. This value true will result in
-	 * smoothing using the default smoothing interpolation function
-	 * Chartist.Interpolation.cardinal and false results in
-	 * Chartist.Interpolation.none. You can also choose other smoothing /
-	 * interpolation functions available in the Chartist.Interpolation module,
-	 * or write your own interpolation function. Check the examples for a brief
-	 * description.
+	 * Specify if the lines should be smoothed. This value true will result in smoothing using the default smoothing
+	 * interpolation function Chartist.Interpolation.cardinal and false results in Chartist.Interpolation.none. You can
+	 * also choose other smoothing / interpolation functions available in the Chartist.Interpolation module, or write
+	 * your own interpolation function. Check the examples for a brief description.
 	 * 
 	 * @return the lineSmooth
 	 */
@@ -135,13 +131,10 @@ public class LineChartModel extends CartesianChartModel {
 	}
 
 	/**
-	 * Specify if the lines should be smoothed. This value true will result in
-	 * smoothing using the default smoothing interpolation function
-	 * Chartist.Interpolation.cardinal and false results in
-	 * Chartist.Interpolation.none. You can also choose other smoothing /
-	 * interpolation functions available in the Chartist.Interpolation module,
-	 * or write your own interpolation function. Check the examples for a brief
-	 * description.
+	 * Specify if the lines should be smoothed. This value true will result in smoothing using the default smoothing
+	 * interpolation function Chartist.Interpolation.cardinal and false results in Chartist.Interpolation.none. You can
+	 * also choose other smoothing / interpolation functions available in the Chartist.Interpolation module, or write
+	 * your own interpolation function. Check the examples for a brief description.
 	 * 
 	 * @param lineSmooth
 	 *            the lineSmooth to set
@@ -151,10 +144,9 @@ public class LineChartModel extends CartesianChartModel {
 	}
 
 	/**
-	 * When set to true, the last grid line on the x-axis is not drawn and the
-	 * chart elements will expand to the full available width of the chart. For
-	 * the last label to be drawn correctly you might need to add chart padding
-	 * or offset the last label with a draw event handler.
+	 * When set to true, the last grid line on the x-axis is not drawn and the chart elements will expand to the full
+	 * available width of the chart. For the last label to be drawn correctly you might need to add chart padding or
+	 * offset the last label with a draw event handler.
 	 * 
 	 * @return the fullWidth
 	 */
@@ -163,10 +155,9 @@ public class LineChartModel extends CartesianChartModel {
 	}
 
 	/**
-	 * When set to true, the last grid line on the x-axis is not drawn and the
-	 * chart elements will expand to the full available width of the chart. For
-	 * the last label to be drawn correctly you might need to add chart padding
-	 * or offset the last label with a draw event handler.
+	 * When set to true, the last grid line on the x-axis is not drawn and the chart elements will expand to the full
+	 * available width of the chart. For the last label to be drawn correctly you might need to add chart padding or
+	 * offset the last label with a draw event handler.
 	 * 
 	 * @param fullWidth
 	 *            the fullWidth to set
@@ -174,4 +165,5 @@ public class LineChartModel extends CartesianChartModel {
 	public void setFullWidth(boolean fullWidth) {
 		this.fullWidth = fullWidth;
 	}
+
 }
