@@ -62,6 +62,9 @@ public class LinearAxis extends Axis {
 		if (axisType.equals(AxisType.Y))
 			writer.write(", scaleMinSpace: " + getScaleMinSpace());
 
+		if (axisType.equals(AxisType.Y))
+			writer.write(", onlyInteger: " + isOnlyInteger());
+
 		writer.write("}");
 	}
 }

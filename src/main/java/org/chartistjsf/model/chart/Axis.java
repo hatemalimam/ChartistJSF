@@ -39,6 +39,7 @@ public abstract class Axis implements Serializable {
 	private boolean showGrid = true;
 	private String labelInterpolationFnc;
 	private int scaleMinSpace = 20;
+	private boolean onlyInteger = false;
 
 	/**
 	 * The offset of the labels to the chart area
@@ -57,10 +58,11 @@ public abstract class Axis implements Serializable {
 	public void setOffset(int offset) {
 		this.offset = offset;
 	}
-	
+
 	/**
-	 * Position where labels are placed.
-	 * Can be set to AxisPosition.START or AxisPosition.END where `start` is equivalent to left or top on vertical axis and `end` is equivalent to right or bottom on horizontal axis.
+	 * Position where labels are placed. Can be set to AxisPosition.START or AxisPosition.END where `start` is
+	 * equivalent to left or top on vertical axis and `end` is equivalent to right or bottom on horizontal axis.
+	 * 
 	 * @return the axisPosition
 	 */
 	public AxisPosition getAxisPosition() {
@@ -68,17 +70,18 @@ public abstract class Axis implements Serializable {
 	}
 
 	/**
-	 * Position where labels are placed.
-	 * Can be set to AxisPosition.START or AxisPosition.END where `start` is equivalent to left or top on vertical axis and `end` is equivalent to right or bottom on horizontal axis.
-	 * @param axisPosition the axisPosition to set
+	 * Position where labels are placed. Can be set to AxisPosition.START or AxisPosition.END where `start` is
+	 * equivalent to left or top on vertical axis and `end` is equivalent to right or bottom on horizontal axis.
+	 * 
+	 * @param axisPosition
+	 *            the axisPosition to set
 	 */
 	public void setAxisPosition(AxisPosition axisPosition) {
 		this.axisPosition = axisPosition;
 	}
 
 	/**
-	 * Allows to correct label positioning on this axis by positive or negative
-	 * x offset.
+	 * Allows to correct label positioning on this axis by positive or negative x offset.
 	 * 
 	 * @return the xLabelOffset
 	 */
@@ -87,8 +90,7 @@ public abstract class Axis implements Serializable {
 	}
 
 	/**
-	 * Allows to correct label positioning on this axis by positive or negative
-	 * x offset.
+	 * Allows to correct label positioning on this axis by positive or negative x offset.
 	 * 
 	 * @param xLabelOffset
 	 */
@@ -97,8 +99,7 @@ public abstract class Axis implements Serializable {
 	}
 
 	/**
-	 * Allows to correct label positioning on this axis by positive or negative
-	 * y offset.
+	 * Allows to correct label positioning on this axis by positive or negative y offset.
 	 * 
 	 * @return the yLabelOffset
 	 */
@@ -107,8 +108,7 @@ public abstract class Axis implements Serializable {
 	}
 
 	/**
-	 * Allows to correct label positioning on this axis by positive or negative
-	 * y offset.
+	 * Allows to correct label positioning on this axis by positive or negative y offset.
 	 * 
 	 * @param yLabelOffset
 	 */
@@ -153,12 +153,9 @@ public abstract class Axis implements Serializable {
 	public void setShowGrid(boolean showGrid) {
 		this.showGrid = showGrid;
 	}
-	
-	
 
 	/**
-	 * Interpolation function that allows you to intercept the value from the
-	 * axis label
+	 * Interpolation function that allows you to intercept the value from the axis label
 	 * 
 	 * @return the labelInterpolationFnc
 	 */
@@ -167,8 +164,7 @@ public abstract class Axis implements Serializable {
 	}
 
 	/**
-	 * Interpolation function that allows you to intercept the value from the
-	 * axis label
+	 * Interpolation function that allows you to intercept the value from the axis label
 	 * 
 	 * @param labelInterpolationFnc
 	 *            the labelInterpolationFnc to set
@@ -194,6 +190,25 @@ public abstract class Axis implements Serializable {
 	 */
 	public void setScaleMinSpace(int scaleMinSpace) {
 		this.scaleMinSpace = scaleMinSpace;
+	}
+
+	/**
+	 * Use only integer values (whole numbers) for the scale steps
+	 * 
+	 * @return the onlyInteger
+	 */
+	public boolean isOnlyInteger() {
+		return onlyInteger;
+	}
+
+	/**
+	 * Use only integer values (whole numbers) for the scale steps
+	 * 
+	 * @param onlyInteger
+	 *            the onlyInteger to set
+	 */
+	public void setOnlyInteger(boolean onlyInteger) {
+		this.onlyInteger = onlyInteger;
 	}
 
 	public abstract void render(ResponseWriter writer, AxisType axisType) throws IOException;
