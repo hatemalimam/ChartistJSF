@@ -64,6 +64,10 @@ public class LineRenderer extends BaseChartistRenderer {
 
 			}
 			writer.write("]");
+			// className for series
+			if (series.getClassName() != null && !series.getClassName().isEmpty()) {
+				writer.write(", className:\"" + series.getClassName() + "\"");
+			}
 			writer.write("}");
 
 			if (it.hasNext()) {
@@ -115,10 +119,10 @@ public class LineRenderer extends BaseChartistRenderer {
 			writer.write(",chartPadding:" + model.getChartPadding());
 
 		if (model.getPlugins() != null)
-		    writer.write(",plugins:" + model.getPlugins());
-		else if(chart.getPlugins() != null)
-		    writer.write(",plugins:" + chart.getPlugins());
-		
+			writer.write(",plugins:" + model.getPlugins());
+		else if (chart.getPlugins() != null)
+			writer.write(",plugins:" + chart.getPlugins());
+
 		writer.write(",fullWidth:" + model.isFullWidth());
 		writer.write(",reverseData:" + model.isReverseData());
 

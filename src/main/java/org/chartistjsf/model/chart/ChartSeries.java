@@ -38,6 +38,8 @@ public class ChartSeries implements Serializable {
 
 	private AxisType yaxis;
 
+	private String className;
+
 	public ChartSeries() {
 	}
 
@@ -79,6 +81,23 @@ public class ChartSeries implements Serializable {
 
 	public void setYaxis(AxisType yaxis) {
 		this.yaxis = yaxis;
+	}
+
+	/**
+	 * @return the className
+	 */
+	public String getClassName() {
+		return className;
+	}
+
+	/**
+	 * Use series class from series data or if not set generate one
+	 * 
+	 * @param className
+	 *            the className to set
+	 */
+	public void setClassName(String className) {
+		this.className = className;
 	}
 
 }
