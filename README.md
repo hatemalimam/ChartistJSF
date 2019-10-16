@@ -81,7 +81,7 @@ xmlns:ct="http://www.chartistjsf.org/charts"
 - - - -
 
 
-## [Further Examples](http://jsf.hatemalimam.com/chartistjsf)
+## [Further Examples](https://chartistjsf-showcase.herokuapp.com/)
 ***
 
 Please refer to the [showcase](http://jsf.hatemalimam.com/chartistjsf) website in order to see the full usage.
