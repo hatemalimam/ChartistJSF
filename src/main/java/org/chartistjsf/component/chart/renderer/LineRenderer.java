@@ -13,7 +13,7 @@ import org.chartistjsf.model.chart.Axis;
 import org.chartistjsf.model.chart.AxisType;
 import org.chartistjsf.model.chart.ChartSeries;
 import org.chartistjsf.model.chart.LineChartModel;
-import org.primefaces.util.ComponentUtils;
+import org.primefaces.util.EscapeUtils;
 
 public class LineRenderer extends BaseChartistRenderer {
 
@@ -36,7 +36,7 @@ public class LineRenderer extends BaseChartistRenderer {
 			Object label = labelsItr.next();
 
 			if (label instanceof String)
-				writer.write("\"" + ComponentUtils.escapeText(label.toString()) + "\"");
+				writer.write("\"" + EscapeUtils.forJavaScript(label.toString()) + "\"");
 			else
 				writer.write(label != null ? label.toString() : "");
 
@@ -50,7 +50,7 @@ public class LineRenderer extends BaseChartistRenderer {
 		for (Iterator<ChartSeries> it = model.getSeries().iterator(); it.hasNext();) {
 			ChartSeries series = it.next();
 			writer.write("{");
-			writer.write("name:\"" + ComponentUtils.escapeText(series.getName()) + "\"");
+			writer.write("name:\"" + EscapeUtils.forJavaScript(series.getName()) + "\"");
 			writer.write(", data:[");
 			for (Iterator<Number> numbersIter = series.getData().iterator(); numbersIter.hasNext();) {
 				Number number = numbersIter.next();
@@ -93,10 +93,10 @@ public class LineRenderer extends BaseChartistRenderer {
 		}
 
 		if (model.getWidth() != null)
-			writer.write(",width:\"" + ComponentUtils.escapeText(model.getWidth()) + "\"");
+			writer.write(",width:\"" + EscapeUtils.forJavaScript(model.getWidth()) + "\"");
 
 		if (model.getHeight() != null)
-			writer.write(",height:\"" + ComponentUtils.escapeText(model.getHeight()) + "\"");
+			writer.write(",height:\"" + EscapeUtils.forJavaScript(model.getHeight()) + "\"");
 
 		writer.write(",showLine:" + model.isShowLine());
 		writer.write(",showPoint:" + model.isShowPoint());
