@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Licensed to the Apache Software Foundation (ASF) under one or more contributor license agreements. See the NOTICE file 
-	distributed with this work for additional information regarding copyright ownership. The ASF licenses this file to you under 
-	the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may 
-	obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to 
-	in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF 
-	ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under 
-	the License. -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<!-- Licensed to the Apache Software Foundation (ASF) under one or more contributor 
+	license agreements. See the NOTICE file distributed with this work for additional 
+	information regarding copyright ownership. The ASF licenses this file to 
+	you under the Apache License, Version 2.0 (the "License"); you may not use 
+	this file except in compliance with the License. You may obtain a copy of 
+	the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required 
+	by applicable law or agreed to in writing, software distributed under the 
+	License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS 
+	OF ANY KIND, either express or implied. See the License for the specific 
+	language governing permissions and limitations under the License. -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.chartistjsf</groupId>
@@ -131,7 +135,8 @@
 				</configuration>
 			</plugin>
 
-			<!-- Configure the jar with the sources (or rather, convince Maven that we want sources at all) -->
+			<!-- Configure the jar with the sources (or rather, convince Maven that 
+				we want sources at all) -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
@@ -146,31 +151,30 @@
 				</executions>
 			</plugin>
 
-			<!-- Configure the jar with the javadoc (or rather, convince Maven that we want javadoc at all) -->
+			<!-- Configure the jar with the javadoc (or rather, convince Maven that 
+				we want javadoc at all) -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>2.10.1</version>
-				<configuration>
-					<javadocVersion>1.8</javadocVersion>
-					<notimestamp>true</notimestamp>
-					<splitindex>true</splitindex>
-					<doctitle>ChartistJSF API documentation</doctitle>
-					<links>
-						<link>https://docs.oracle.com/javaee/7/api/</link>
-					</links>
-				</configuration>
+				<version>3.1.0</version>
 				<executions>
 					<execution>
 						<id>attach-javadocs</id>
 						<goals>
 							<goal>jar</goal>
 						</goals>
+						<configuration>
+							<!-- Fix for https://bugs.openjdk.java.net/browse/JDK-8212233 -->
+							<source>8</source>
+							<!-- Turn off doclint in JDK 8 because it errors instead of warns -->
+							<doclint>none</doclint>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>
 
-			<!-- Deploying is done via sonatype's Nexus Snapshot deploy: mvn clean deploy Release deploy: mvn clean deploy -P release -->
+			<!-- Deploying is done via sonatype's Nexus Snapshot deploy: mvn clean 
+				deploy Release deploy: mvn clean deploy -P release -->
 			<plugin>
 				<groupId>org.sonatype.plugins</groupId>
 				<artifactId>nexus-staging-maven-plugin</artifactId>
@@ -190,7 +194,8 @@
 			<id>release</id>
 			<build>
 				<plugins>
-					<!-- Signing with GPG is a requirement for a release deployment (to Maven central) -->
+					<!-- Signing with GPG is a requirement for a release deployment (to 
+						Maven central) -->
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-gpg-plugin</artifactId>
