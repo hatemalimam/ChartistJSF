@@ -95,8 +95,8 @@ public class ChartRenderer extends CoreRenderer {
 		BaseChartistRenderer chartistRenderer = CHART_RENDERERS.get(type);
 		String clientId = chart.getClientId(context);
 
-		startScript(writer, clientId);
-
+		writer.startElement("script", chart);
+        writer.writeAttribute("type", "text/javascript", null);
 		writer.write("$(function(){");
 		writer.write("ChartistJSF.cw('Chart','" + chart.resolveWidgetVar() + "',{");
 		writer.write("id:'" + clientId + "'");
@@ -107,7 +107,6 @@ public class ChartRenderer extends CoreRenderer {
 		chartistRenderer.render(context, chart);
 		encodeClientBehaviors(context, chart);
 		writer.write("});});");
-
-		endScript(writer);
+		writer.endElement("script");
 	}
 }
