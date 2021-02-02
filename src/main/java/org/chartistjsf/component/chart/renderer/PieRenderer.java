@@ -8,7 +8,7 @@ import javax.faces.context.ResponseWriter;
 
 import org.chartistjsf.component.chart.Chart;
 import org.chartistjsf.model.chart.PieChartModel;
-import org.primefaces.util.ComponentUtils;
+import org.primefaces.util.EscapeUtils;
 
 public class PieRenderer extends BaseChartistRenderer {
 
@@ -25,7 +25,7 @@ public class PieRenderer extends BaseChartistRenderer {
 				Object label = labelsItr.next();
 
 				if (label instanceof String)
-					writer.write("\"" + ComponentUtils.escapeText(label.toString()) + "\"");
+					writer.write("\"" + EscapeUtils.forJavaScript(label.toString()) + "\"");
 				else
 					writer.write(label !=null?label.toString():"");
 
@@ -69,10 +69,10 @@ public class PieRenderer extends BaseChartistRenderer {
 		writer.write(",showLabel:" + model.isShowLabel());
 		writer.write(",labelOffset:" + model.getLabelOffset());
 		if (model.getWidth() != null)
-			writer.write(",width:\"" + ComponentUtils.escapeText(model.getWidth()) + "\"");
+			writer.write(",width:\"" + EscapeUtils.forJavaScript(model.getWidth()) + "\"");
 
 		if (model.getHeight() != null)
-			writer.write(",height:\"" + ComponentUtils.escapeText(model.getHeight()) + "\"");
+			writer.write(",height:\"" + EscapeUtils.forJavaScript(model.getHeight()) + "\"");
 
 		if (model.getLabelInterpolationFnc() != null && !model.getLabelInterpolationFnc().equals(""))
 			writer.write(", labelInterpolationFnc: " + model.getLabelInterpolationFnc());
